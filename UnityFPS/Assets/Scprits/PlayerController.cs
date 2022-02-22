@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetMove()
+    {
+
+    }
+
+    public void Move()
+    {
+
+    }
+
    
     // Start is called before the first frame update
 
@@ -23,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         m_pc = GetComponent<PlayerController>();
         rd = GetComponent<Rigidbody2D>();
+        rd.gravityScale = 0f;
     }
     void Start()
     {
@@ -33,5 +44,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 }
