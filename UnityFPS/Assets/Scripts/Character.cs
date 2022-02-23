@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
 {
 
     public CharacterController PC;
-    public float movementSmoothingSpeed = 0.5f;
+    public float movementSmoothingSpeed = 1f;
 
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovemnt;
