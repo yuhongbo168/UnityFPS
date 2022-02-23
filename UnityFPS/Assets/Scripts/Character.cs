@@ -1,12 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-public class CharacterPlayer : MonoBehaviour
+public class Character : MonoBehaviour
 {
 
-    public PlayerController PC;
+    public CharacterController PC;
     public float movementSmoothingSpeed = 0.5f;
 
     private Vector3 rawInputMovement;
@@ -14,12 +14,12 @@ public class CharacterPlayer : MonoBehaviour
 
     private void Awake()
     {
-        PC = GetComponent<PlayerController>();
+        PC = GetComponent<CharacterController>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class CharacterPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PC.rd.MovePosition(transform.position + rawInputMovement*4f*Time.deltaTime);
+        PC.rd.MovePosition(transform.position + smoothInputMovemnt * 10f * Time.deltaTime);
     }
 
     public void OnMovement(InputAction.CallbackContext value)

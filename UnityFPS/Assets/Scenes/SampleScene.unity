@@ -250,11 +250,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240795141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a464b9e744aa61746875c3b0881bd960, type: 3}
+  m_Script: {fileID: 11500000, guid: e6f788207126f0b498e785f4bf7fc0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PC: {fileID: 1240795144}
-  movementSmoothingSpeed: 2
+  rd: {fileID: 1240795147}
 --- !u!114 &1240795144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,10 +263,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240795141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdeb7a43ad1d3bb4abacb3d7ca96adf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 419545c1c766ea2469bb835fbc37a3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rd: {fileID: 1240795147}
+  PC: {fileID: 1240795143}
+  movementSmoothingSpeed: 5
 --- !u!212 &1240795145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -346,8 +346,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240795143}
-        m_TargetAssemblyTypeName: CharacterPlayer, Assembly-CSharp
+      - m_Target: {fileID: 1240795144}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
         m_Arguments:
