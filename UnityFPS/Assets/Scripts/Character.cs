@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
 
     public CharacterController PC;
     public float movementSmoothingSpeed = 1f;
+    public BulletPool bulletPool;
 
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovemnt;
@@ -22,6 +23,10 @@ public class Character : MonoBehaviour
 
     }
 
+    public void Fire()
+    {
+        BulletObject bulletOjbect = bulletPool.Pop();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +35,7 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PC.rd.MovePosition(transform.position + smoothInputMovemnt * 10f * Time.deltaTime);
+        PC.rd.MovePosition(transform.position + smoothInputMovemnt * 3f * Time.deltaTime);
     }
 
     public void OnMovement(InputAction.CallbackContext value)
