@@ -2,6 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public abstract class ObjectPool<TPool, TObject,TInfo>: ObjectPool<TPool, TObject>
+    where TPool : ObjectPool<TPool, TObject,TInfo>
+    where TObject : PoolObject<TPool, TObject,TInfo>, new()
+{
+    private void Start()
+    {
+        for (int i = 0; i < initialCount; i++)
+        {
+            TObject newPoolObject = CreateNewObject();
+            items.Add(newPoolObject);
+        }
+
+    }
+
+    public virtual TObject Pop(TInfo info)
+    {
+       
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].inPool)
+            {
+                items[i].inPool = false;
+                items[i].WeakUp(info);
+                return items[i];
+            }
+        }
+
+        TObject newObject = CreateNewObject();
+        newObject.inPool = false;
+        newObject.WeakUp(info);
+        return newObject;
+
+    }
+
+
+
+}
 public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
     where TPool:ObjectPool<TPool,TObject>
     where TObject:PoolObject<TPool,TObject>,new()
@@ -30,11 +68,12 @@ public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
         newitem.instance = Instantiate(prefab);
         newitem.instance.transform.SetParent(transform);
         newitem.inPool = true;
+        newitem.SetRefrence(this as TPool);
         newitem.Sleep();
         return newitem;
     }
 
-    public TObject Pop()
+    public virtual TObject Pop()
     {
         
         for (int i = 0; i < items.Count; i++)
@@ -48,10 +87,21 @@ public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
         }
 
         TObject newitem = CreateNewObject();
+        newitem.WeakUp();
         return newitem;
     }
 
    
+}
+
+public abstract class PoolObject<TPool,TObject,TInfo>:PoolObject<TPool, TObject>
+    where TPool : ObjectPool<TPool, TObject, TInfo>
+    where TObject : PoolObject<TPool, TObject, TInfo>, new()
+{
+    public virtual void WeakUp(TInfo info)
+    {
+
+    }
 }
 
 public abstract class PoolObject<TPool,TObject>
@@ -69,6 +119,17 @@ public abstract class PoolObject<TPool,TObject>
     }
 
     public virtual void WeakUp()
+    {
+
+    }
+
+    public void SetRefrence(TPool newpool)
+    {
+        pool = newpool;
+        SetRefrence();
+    }
+
+    public virtual void SetRefrence()
     {
 
     }

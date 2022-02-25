@@ -9,6 +9,8 @@ public class Character : MonoBehaviour
     public CharacterController PC;
     public float movementSmoothingSpeed = 1f;
     public BulletPool bulletPool;
+    public Transform currenShootPosition;
+    public float bulletSpeed = 10f;
 
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovemnt;
@@ -25,7 +27,9 @@ public class Character : MonoBehaviour
 
     public void Fire()
     {
-        BulletObject bulletOjbect = bulletPool.Pop();
+        BulletObject bullet = bulletPool.Pop(currenShootPosition.position);
+        bullet.rigidbody2D.velocity = new Vector2(bulletSpeed, -0f);
+
     }
     // Update is called once per frame
     void Update()
@@ -43,6 +47,15 @@ public class Character : MonoBehaviour
         Vector2 inputMovement = value.ReadValue<Vector2>();
         Debug.Log(inputMovement);
         rawInputMovement = new Vector3(inputMovement.x, inputMovement.y, 0f);
+    }
+
+    public void OnFire(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            BulletObject bullet = bulletPool.Pop(currenShootPosition.position);
+            bullet.rigidbody2D.velocity = new Vector2(bulletSpeed, -0f);
+        }
     }
 
     void CalculateMovementInputSmoothing()
