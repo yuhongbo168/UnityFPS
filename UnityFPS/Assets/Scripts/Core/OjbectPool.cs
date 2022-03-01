@@ -91,7 +91,12 @@ public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
         return newitem;
     }
 
-   
+    public virtual void Push(TObject poolObject)
+    {
+        poolObject.inPool = true;
+        poolObject.Sleep();
+    }
+
 }
 
 public abstract class PoolObject<TPool,TObject,TInfo>:PoolObject<TPool, TObject>
@@ -132,5 +137,11 @@ public abstract class PoolObject<TPool,TObject>
     public virtual void SetRefrence()
     {
 
+    }
+
+    public virtual void ReturnToPool()
+    {
+        TObject thisOjbect = this as TObject;
+        pool.Push(thisOjbect);
     }
 }

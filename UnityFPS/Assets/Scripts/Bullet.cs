@@ -10,11 +10,15 @@ public class Bullet : MonoBehaviour
 
     [HideInInspector]
     public Camera mianCamera;
+
+    public BulletObject bulletPoolObject;
+
+    const float k_OffScreentError = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 screenPoint = mianCamera.WorldToViewportPoint(transform.position);
-        Debug.Log(screenPoint);
+        
+        
     }
 
     // Update is called once per frame
@@ -22,4 +26,23 @@ public class Bullet : MonoBehaviour
     {
         
     }
+
+    private void FixedUpdate()
+    {
+        Vector3 screenPoint = mianCamera.WorldToViewportPoint(transform.position);
+
+        bool onScreen = screenPoint.z > 0 && screenPoint.x > -k_OffScreentError && screenPoint.x < 1 + k_OffScreentError &&
+            screenPoint.y > -k_OffScreentError && screenPoint.y < 1 + k_OffScreentError;
+
+        if (!onScreen)
+        {
+            ReturnToPool();
+        }
+    }
+
+    public void ReturnToPool()
+    {
+        bulletPoolObject.ReturnToPool();
+    }
+
 }

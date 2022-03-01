@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPool:ObjectPool<BulletPool, BulletObject,Vector3>
+public class BulletPool:ObjectPool<BulletPool, BulletObject,Vector2>
 {
    
 
@@ -13,7 +13,7 @@ public class BulletPool:ObjectPool<BulletPool, BulletObject,Vector3>
     }
 }
 
-public class BulletObject:PoolObject<BulletPool, BulletObject,Vector3>
+public class BulletObject:PoolObject<BulletPool, BulletObject,Vector2>
 {
 
     public Transform transform;
@@ -26,7 +26,7 @@ public class BulletObject:PoolObject<BulletPool, BulletObject,Vector3>
         instance.SetActive(false);
     }
 
-    public override void WeakUp(Vector3 newPos)
+    public override void WeakUp(Vector2 newPos)
     {
         transform.position = newPos;
         instance.SetActive(true);
@@ -38,6 +38,7 @@ public class BulletObject:PoolObject<BulletPool, BulletObject,Vector3>
         rigidbody2D = instance.GetComponent<Rigidbody2D>();
         spriteRenderer = instance.GetComponent<SpriteRenderer>();
         buller = instance.AddComponent<Bullet>();
+        buller.bulletPoolObject = this;
         buller.mianCamera = Object.FindObjectOfType<Camera>();
         
     }
