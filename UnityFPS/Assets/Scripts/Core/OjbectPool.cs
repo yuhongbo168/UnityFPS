@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +13,7 @@ public abstract class ObjectPool<TPool, TObject,TInfo>: ObjectPool<TPool, TObjec
         {
             TObject newPoolObject = CreateNewObject();
             items.Add(newPoolObject);
+
         }
 
     }
@@ -31,6 +32,7 @@ public abstract class ObjectPool<TPool, TObject,TInfo>: ObjectPool<TPool, TObjec
         }
 
         TObject newObject = CreateNewObject();
+        items.Add(newObject);
         newObject.inPool = false;
         newObject.WeakUp(info);
         return newObject;
@@ -58,6 +60,7 @@ public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
         {
             TObject newitem = CreateNewObject();
             items.Add(newitem);
+           
         }
         
     }
@@ -87,6 +90,7 @@ public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
         }
 
         TObject newitem = CreateNewObject();
+        items.Add(newitem);
         newitem.WeakUp();
         return newitem;
     }
@@ -136,7 +140,7 @@ public abstract class PoolObject<TPool,TObject>
 
     public virtual void SetRefrence()
     {
-
+        
     }
 
     public virtual void ReturnToPool()

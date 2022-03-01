@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -8,12 +9,20 @@ public class Character : MonoBehaviour
 
     public CharacterController PC;
     public float movementSmoothingSpeed = 1f;
+    public float moveSpeed = 3f;
     public BulletPool bulletPool;
     public Transform currenShootPosition;
     public float bulletSpeed = 10f;
 
+    public float shotsPerSecond = 1f;
+
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovemnt;
+
+    private bool m_fire;
+    private float m_NextShotTime;
+    private float m_ShotSpawnGap;
+    private Coroutine fireCoroutine;
 
     private void Awake()
     {
@@ -23,12 +32,13 @@ public class Character : MonoBehaviour
     void Start()
     {
 
+        m_ShotSpawnGap = 1f / shotsPerSecond;
+        m_NextShotTime = Time.time;
     }
 
     public void Fire()
     {
-        BulletObject bullet = bulletPool.Pop(currenShootPosition.position);
-        bullet.rigidbody2D.velocity = new Vector2(bulletSpeed, -0f);
+     
 
     }
     // Update is called once per frame
@@ -39,22 +49,64 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PC.rd.MovePosition(transform.position + smoothInputMovemnt * 3f * Time.deltaTime);
+        PC.rd.MovePosition(transform.position + smoothInputMovemnt * moveSpeed * Time.deltaTime);
     }
 
     public void OnMovement(InputAction.CallbackContext value)
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
-        Debug.Log(inputMovement);
+       
         rawInputMovement = new Vector3(inputMovement.x, inputMovement.y, 0f);
     }
 
+    protected IEnumerator Shoot()
+    {
+        while (true)
+        {
+            if (Time.time>m_NextShotTime)
+            {
+                SpawnBullet();
+                m_NextShotTime = Time.time + m_ShotSpawnGap;
+            }
+            yield return null;
+        }
+    }
+
+
+    protected void SpawnBullet()
+    {
+        BulletObject bullet = bulletPool.Pop(currenShootPosition.position);
+        bullet.rigidbody2D.velocity = new Vector2(bulletSpeed, -0f);
+    }
+
+
     public void OnFire(InputAction.CallbackContext value)
     {
+ 
         if (value.started)
+        {       
+            if (Time.time > m_NextShotTime)
+            {
+                CheckAndFireGun();
+                m_NextShotTime = Time.time + m_ShotSpawnGap;
+            }
+        }
+        else if (value.canceled)
         {
-            BulletObject bullet = bulletPool.Pop(currenShootPosition.position);
-            bullet.rigidbody2D.velocity = new Vector2(bulletSpeed, -0f);
+            StopFireing();
+        }       
+    }
+
+    public void CheckAndFireGun()
+    {
+        fireCoroutine = StartCoroutine(Shoot());
+    }
+
+    public void StopFireing()
+    {
+        if (fireCoroutine!=null)
+        {
+            StopCoroutine(fireCoroutine);
         }
     }
 

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,12 +34,13 @@ public class BulletObject:PoolObject<BulletPool, BulletObject,Vector2>
 
     public override void SetRefrence()
     {
+        
         transform = instance.transform;
         rigidbody2D = instance.GetComponent<Rigidbody2D>();
         spriteRenderer = instance.GetComponent<SpriteRenderer>();
-        buller = instance.AddComponent<Bullet>();
+        buller = instance.GetComponent<Bullet>();
         buller.bulletPoolObject = this;
         buller.mianCamera = Object.FindObjectOfType<Camera>();
-        
+
     }
 }

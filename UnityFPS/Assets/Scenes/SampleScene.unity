@@ -309,7 +309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584295589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.86, y: 0.08, z: 0}
+  m_LocalPosition: {x: 2.48, y: 0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1240795142}
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 1240795141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.93, y: 0.06, z: -1.9999019}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.28292862, y: 0.14493997, z: 1}
   m_Children:
   - {fileID: 584295590}
   m_Father: {fileID: 0}
@@ -452,10 +452,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PC: {fileID: 1240795143}
-  movementSmoothingSpeed: 10
+  movementSmoothingSpeed: 20
+  moveSpeed: 5
   bulletPool: {fileID: 1240795148}
   currenShootPosition: {fileID: 584295590}
   bulletSpeed: 20
+  shotsPerSecond: 10
 --- !u!212 &1240795145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -500,7 +502,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 4.53, y: 5.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -602,8 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db6cbc02864e534c8a832198e998b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4838880685616839326, guid: 67d2ad21290c02248b1d72cc1d36b0d8, type: 3}
-  initialCount: 11
+  prefab: {fileID: 4705835087041418404, guid: 67d2ad21290c02248b1d72cc1d36b0d8, type: 3}
+  initialCount: 5
 --- !u!1 &1349454284
 GameObject:
   m_ObjectHideFlags: 0
