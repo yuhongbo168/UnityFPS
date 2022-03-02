@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,5 +35,10 @@ public class Damabeable : MonoBehaviour
     public void TakeDamage(Damager damager,bool ignoreInvincible = false)
     {
         m_CurrentHealth -= damager.damage;
+
+        if (m_CurrentHealth<=0)
+        {
+            Destroy(this);
+        }
     }
 }

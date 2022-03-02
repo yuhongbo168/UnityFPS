@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3653631603569141011}
   - component: {fileID: 6810606674174250955}
   - component: {fileID: 1143837723550932748}
-  - component: {fileID: -8568794080347293223}
+  - component: {fileID: 6461031419005322639}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
   spriteOriginallyFacesLeft: 0
   mianCamera: {fileID: 0}
   timeBeforAutodestruct: -1
---- !u!114 &-8568794080347293223
+--- !u!114 &6461031419005322639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcebbeb19b48e64ba1ec98c2037b946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   offsetBasedOnSpriteFacing: 1
   offset: {x: 1.5, y: 1}
   size: {x: 2.5, y: 1}
@@ -145,31 +146,7 @@ MonoBehaviour:
   ignoreInvincibility: 0
   OnDamageableHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1143837723550932748}
-        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
-        m_MethodName: OnHitDamageable
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnNonDamageableHit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1143837723550932748}
-        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
-        m_MethodName: OnHitNonDamageable
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
