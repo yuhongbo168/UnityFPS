@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4705835087041418404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.065, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,17 +136,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   offsetBasedOnSpriteFacing: 1
-  offset: {x: 1.5, y: 1}
-  size: {x: 2.5, y: 1}
+  offset: {x: 0.104577705, y: 0.022750735}
+  size: {x: 0.44564202, y: 0.4055283}
   spriteRenderer: {fileID: 0}
   canHitTriggers: 0
   hittableLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   ignoreInvincibility: 0
   OnDamageableHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1143837723550932748}
+        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
+        m_MethodName: ReturnToPool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnNonDamageableHit:
     m_PersistentCalls:
       m_Calls: []

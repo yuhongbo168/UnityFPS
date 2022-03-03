@@ -34,11 +34,11 @@ public class Damabeable : MonoBehaviour
 
     public void TakeDamage(Damager damager,bool ignoreInvincible = false)
     {
-        m_CurrentHealth -= damager.damage;
 
+        m_CurrentHealth -= damager.damage;
         if (m_CurrentHealth<=0)
-        {
-            Destroy(this);
+        {          
+            Destroy(gameObject);
         }
     }
 }

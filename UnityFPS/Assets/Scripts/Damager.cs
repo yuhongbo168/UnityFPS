@@ -23,6 +23,7 @@ public class Damager : MonoBehaviour
     public bool canHitTriggers;
     public LayerMask hittableLayers;
     public bool ignoreInvincibility = false;
+   
 
     public DamagableEvent OnDamageableHit;
     public NonDamagableEvent OnNonDamageableHit;
@@ -72,11 +73,13 @@ public class Damager : MonoBehaviour
 
         for (int i = 0; i < hitCount; i++)
         {
+            
             m_LastHit = m_AttackOverlapResults[i];
             Damabeable damageable = m_LastHit.GetComponent<Damabeable>();
 
             if (damageable)
             {
+
                 OnDamageableHit.Invoke(this, damageable);
                 damageable.TakeDamage(this, ignoreInvincibility);
             }
