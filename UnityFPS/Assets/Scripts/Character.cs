@@ -14,10 +14,16 @@ public class Character : MonoBehaviour
     public Transform currenShootPosition;
     public float bulletSpeed = 10f;
 
+    public float groundAccleration = 100f;
+    public float groundDeceleration = 1f;
+
     public float shotsPerSecond = 1f;
 
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovemnt;
+
+    private Vector2 moveDirecation;
+    private Vector2 m_MoveVector;
 
     private bool m_fire;
     private float m_NextShotTime;
@@ -54,9 +60,8 @@ public class Character : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext value)
     {
-        Vector2 inputMovement = value.ReadValue<Vector2>();
+        moveDirecation = value.ReadValue<Vector2>();
        
-        rawInputMovement = new Vector3(inputMovement.x, inputMovement.y, 0f);
     }
 
     protected IEnumerator Shoot()
@@ -113,6 +118,13 @@ public class Character : MonoBehaviour
     void CalculateMovementInputSmoothing()
     {
         smoothInputMovemnt = Vector3.Lerp(smoothInputMovemnt, rawInputMovement, Time.deltaTime * movementSmoothingSpeed);
+    }
+
+    public void HorizonalMovement(bool useInput,float speedScale = 1f)
+    {
+        float desiredSpeed = useInput ? moveDirecation.x * moveSpeed * speedScale : 0;
+        float acceleration = useInput && moveDirecation.x != 0 ? groundAccleration : groundDeceleration;
+        m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeed, acceleration * Time.deltaTime);
     }
 
 }
