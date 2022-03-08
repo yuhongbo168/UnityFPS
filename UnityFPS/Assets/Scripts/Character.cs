@@ -55,7 +55,7 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PC.rd.MovePosition(transform.position + smoothInputMovemnt * moveSpeed * Time.deltaTime);
+        PC.Move(m_MoveVector * Time.deltaTime);
     }
 
     public void OnMovement(InputAction.CallbackContext value)
