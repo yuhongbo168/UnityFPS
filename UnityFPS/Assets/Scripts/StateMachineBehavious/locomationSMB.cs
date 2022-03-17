@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class locomationSMB : MonoBehaviour
+public class locomationSMB : ScenceLinkSMB<Character>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        m_TMonoBehavious.GroundedHorizonalMovement(true);
+        m_TMonoBehavious.GroundedVerticalMovement();
     }
 }
 

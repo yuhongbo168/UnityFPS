@@ -43,7 +43,7 @@ public class CharacterController : MonoBehaviour
     {
         m_pc = GetComponent<CharacterController>();
         rd = GetComponent<Rigidbody2D>();
-        rd.gravityScale = 0f;
+        
     }
     void Start()
     {

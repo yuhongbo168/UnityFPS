@@ -10,12 +10,15 @@ public class Character : MonoBehaviour
     public CharacterController PC;
     public float movementSmoothingSpeed = 1f;
     public float moveSpeed = 3f;
+    public float gravity = 50f;
+
+
     public BulletPool bulletPool;
     public Transform currenShootPosition;
     public float bulletSpeed = 10f;
 
     public float groundAccleration = 100f;
-    public float groundDeceleration = 1f;
+    public float groundDeceleration = 100f;
 
     public float shotsPerSecond = 1f;
 
@@ -30,9 +33,16 @@ public class Character : MonoBehaviour
     private float m_ShotSpawnGap;
     private Coroutine fireCoroutine;
 
+    private Animator m_Animator;
+
+    protected readonly int m_HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
+
+    protected const float k_GroundedStickingVelocityMultiplier = 3f;
+
     private void Awake()
     {
         PC = GetComponent<CharacterController>();
+        m_Animator = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -40,6 +50,8 @@ public class Character : MonoBehaviour
 
         m_ShotSpawnGap = 1f / shotsPerSecond;
         m_NextShotTime = Time.time;
+
+        ScenceLinkSMB<Character>.Initialise(m_Animator,this);
     }
 
     public void Fire()
@@ -50,12 +62,14 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalculateMovementInputSmoothing();
+        
     }
 
     private void FixedUpdate()
     {
         PC.Move(m_MoveVector * Time.deltaTime);
+        m_Animator.SetFloat(m_HashHorizontalSpeedPara, m_MoveVector.x);
+        
     }
 
     public void OnMovement(InputAction.CallbackContext value)
@@ -120,11 +134,24 @@ public class Character : MonoBehaviour
         smoothInputMovemnt = Vector3.Lerp(smoothInputMovemnt, rawInputMovement, Time.deltaTime * movementSmoothingSpeed);
     }
 
-    public void HorizonalMovement(bool useInput,float speedScale = 1f)
+    public void GroundedHorizonalMovement(bool useInput,float speedScale = 1f)
     {
+        
         float desiredSpeed = useInput ? moveDirecation.x * moveSpeed * speedScale : 0;
+        
         float acceleration = useInput && moveDirecation.x != 0 ? groundAccleration : groundDeceleration;
         m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeed, acceleration * Time.deltaTime);
+        Debug.Log(m_MoveVector.x);
     }
 
+    public void GroundedVerticalMovement()
+    {
+        m_MoveVector.y -= gravity * Time.deltaTime;
+
+        if (m_MoveVector.y<-gravity*Time.deltaTime*k_GroundedStickingVelocityMultiplier)
+        {
+            m_MoveVector.y = -gravity * Time.deltaTime * k_GroundedStickingVelocityMultiplier;
+        }
+
+    }
 }
