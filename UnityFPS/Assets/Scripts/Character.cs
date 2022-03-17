@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     public float movementSmoothingSpeed = 1f;
     public float moveSpeed = 3f;
     public float gravity = 50f;
+    public float jumpSpeed = 40f;
+    public float jumpAbortSpeedReduction = 100f;
 
 
     public BulletPool bulletPool;
@@ -33,9 +35,12 @@ public class Character : MonoBehaviour
     private float m_ShotSpawnGap;
     private Coroutine fireCoroutine;
 
+    private bool m_Jump;
+
     private Animator m_Animator;
 
     protected readonly int m_HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
+    protected readonly int m_HashGroundedPara = Animator.StringToHash("Grounded");
 
     protected const float k_GroundedStickingVelocityMultiplier = 3f;
 
@@ -54,15 +59,10 @@ public class Character : MonoBehaviour
         ScenceLinkSMB<Character>.Initialise(m_Animator,this);
     }
 
-    public void Fire()
-    {
-     
-
-    }
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(m_Jump);
     }
 
     private void FixedUpdate()
@@ -78,6 +78,12 @@ public class Character : MonoBehaviour
        
     }
 
+    public void JumpInput(InputAction.CallbackContext context)
+    {
+        m_Jump = context.started;
+        
+    }
+
     protected IEnumerator Shoot()
     {
         while (true)
@@ -90,7 +96,12 @@ public class Character : MonoBehaviour
             yield return null;
         }
     }
+    public bool CheckForGrounded()
+    {
+        bool grounded = false;
 
+        return grounded;
+    }
 
     protected void SpawnBullet()
     {
@@ -129,6 +140,18 @@ public class Character : MonoBehaviour
         }
     }
 
+   
+
+    public bool CheckForJumpInput()
+    {
+        return m_Jump;
+    }
+
+    public void SetVerticalMovement(float value)
+    {
+        m_MoveVector.y = value;
+    }
+
     void CalculateMovementInputSmoothing()
     {
         smoothInputMovemnt = Vector3.Lerp(smoothInputMovemnt, rawInputMovement, Time.deltaTime * movementSmoothingSpeed);
@@ -141,7 +164,7 @@ public class Character : MonoBehaviour
         
         float acceleration = useInput && moveDirecation.x != 0 ? groundAccleration : groundDeceleration;
         m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeed, acceleration * Time.deltaTime);
-        Debug.Log(m_MoveVector.x);
+       
     }
 
     public void GroundedVerticalMovement()
@@ -154,4 +177,13 @@ public class Character : MonoBehaviour
         }
 
     }
+
+    public void UpdateJump()
+    {
+        if (!m_Jump&&m_MoveVector.y>0.0f)
+        {
+            m_MoveVector.y -= jumpAbortSpeedReduction * Time.deltaTime;
+        }
+    }
+
 }

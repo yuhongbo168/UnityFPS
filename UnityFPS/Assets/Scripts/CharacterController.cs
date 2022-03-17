@@ -5,6 +5,9 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public Rigidbody2D rd;
+    public CapsuleCollider2D capsuleCollider;
+
+    public float groundedRaycastDistance = 0.1f;
 
     private CharacterController m_pc;
 
@@ -12,6 +15,13 @@ public class CharacterController : MonoBehaviour
 
     private Vector2 m_PriveousVector;
     private Vector2 m_CrreuntMovementVector;
+
+    private RaycastHit2D[] m_HitBuffet = new RaycastHit2D[5];
+    private RaycastHit2D m_FoundHits = new RaycastHit2D();
+    private Collider2D m_GroundedColliders = new Collider2D();
+    Vector2 m_RaycastPositions = new Vector2();
+
+    public bool IsGrounded { get; protected set; }
     
     public Vector2 Velocity
     {
@@ -35,9 +45,6 @@ public class CharacterController : MonoBehaviour
     {
         m_NextMovement += newMovement;
     }
-
-
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -64,5 +71,35 @@ public class CharacterController : MonoBehaviour
 
         rd.MovePosition(m_CrreuntMovementVector);
         m_NextMovement = Vector2.zero;
+    }
+
+    void CheckCapsuleEndCollisions()
+    {
+        Vector2 raycastDirection;
+        Vector2 raycastStart;
+        float raycastDistance;
+
+        if (capsuleCollider == null)
+        {
+            raycastStart = rd.position + Vector2.up;
+            raycastDistance = 1f + groundedRaycastDistance;
+
+            raycastDirection = Vector2.down;
+            m_RaycastPositions = raycastStart;
+
+        }
+        else
+        {
+            raycastStart = rd.position + capsuleCollider.offset;
+            raycastDistance = capsuleCollider.size.x * 0.5f + groundedRaycastDistance * 2f;
+    
+            raycastDirection = Vector2.down;
+            Vector2 raycastStartBottomCentre = raycastStart + Vector2.down * (capsuleCollider.size.y * 0.5f - capsuleCollider.size.x * 0.5f);
+
+
+        }
+
+        int count;
+
     }
 }
