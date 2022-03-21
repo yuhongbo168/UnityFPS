@@ -6,8 +6,14 @@ public class CharacterController : MonoBehaviour
 {
     public Rigidbody2D rd;
     public CapsuleCollider2D capsuleCollider;
+    public LayerMask groundedLayerMask;
 
     public float groundedRaycastDistance = 0.1f;
+
+    public ContactFilter2D ContactFilter { get { return m_ContactFilter; } }
+
+    ContactFilter2D m_ContactFilter;
+
 
     private CharacterController m_pc;
 
@@ -50,7 +56,12 @@ public class CharacterController : MonoBehaviour
     {
         m_pc = GetComponent<CharacterController>();
         rd = GetComponent<Rigidbody2D>();
-        
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+
+        m_ContactFilter.layerMask = groundedLayerMask;
+        m_ContactFilter.useLayerMask = true;
+        m_ContactFilter.useTriggers = false;
+
     }
     void Start()
     {
@@ -71,6 +82,10 @@ public class CharacterController : MonoBehaviour
 
         rd.MovePosition(m_CrreuntMovementVector);
         m_NextMovement = Vector2.zero;
+
+        CheckCapsuleEndCollisions();
+
+        Debug.Log(IsGrounded);
     }
 
     void CheckCapsuleEndCollisions()
@@ -94,12 +109,48 @@ public class CharacterController : MonoBehaviour
             raycastDistance = capsuleCollider.size.x * 0.5f + groundedRaycastDistance * 2f;
     
             raycastDirection = Vector2.down;
-            Vector2 raycastStartBottomCentre = raycastStart + Vector2.down * (capsuleCollider.size.y * 0.5f - capsuleCollider.size.x * 0.5f);
+            Vector2 raycastStartBottomCentre = raycastStart + Vector2.down * (capsuleCollider.size.y * 0.5f /*- capsuleCollider.size.x * 0.5f*/);
+
+            m_RaycastPositions = raycastStartBottomCentre;
 
 
         }
 
-        int count;
+        Debug.DrawRay(m_RaycastPositions, raycastDirection);
+
+        int count = Physics2D.Raycast(m_RaycastPositions, raycastDirection, m_ContactFilter, m_HitBuffet, raycastDistance);
+
+        m_FoundHits = count > 0 ? m_HitBuffet[0] : new RaycastHit2D();
+        m_GroundedColliders = m_FoundHits.collider;
+
+
+        Vector2 groundNormal = Vector2.zero;
+        int hitCount = 0;
+
+        if (m_FoundHits.collider!=null)
+        {
+            groundNormal += m_FoundHits.normal;
+            hitCount++;
+        }
+
+        if (hitCount > 0)
+        {
+            groundNormal.Normalize();
+        }
+
+        Debug.Log("hitcount " + count + " m_FoundHitscollider " + m_FoundHits.collider);
+
+        Vector2 relativeVelocity = Velocity;
+
+        if (Mathf.Approximately(groundNormal.x,0f)&&Mathf.Approximately(groundNormal.y,0f))
+        {
+            IsGrounded = false;
+        }
+        else
+        {
+            IsGrounded = relativeVelocity.y <= 0f;
+        }
+
 
     }
 }

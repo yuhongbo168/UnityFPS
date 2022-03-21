@@ -21,6 +21,8 @@ public class Character : MonoBehaviour
 
     public float groundAccleration = 100f;
     public float groundDeceleration = 100f;
+    public float airborneAccleration = 120f;
+    public float airborneDeceleration = 120f;
 
     public float shotsPerSecond = 1f;
 
@@ -62,7 +64,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_Jump);
+        
     }
 
     private void FixedUpdate()
@@ -98,7 +100,9 @@ public class Character : MonoBehaviour
     }
     public bool CheckForGrounded()
     {
-        bool grounded = false;
+        bool grounded = PC.IsGrounded;
+
+        m_Animator.SetBool(m_HashGroundedPara, grounded);
 
         return grounded;
     }
@@ -178,10 +182,29 @@ public class Character : MonoBehaviour
 
     }
 
+    public void AirborneVerticalMovement()
+    {
+        if (Mathf.Approximately(m_MoveVector.y,0f))
+        {
+            m_MoveVector.y = 0f;
+        }
+        m_MoveVector.y -= gravity * Time.deltaTime;
+    }
+
+    public void AirborneHorizonalMovement(bool useInput, float speedScale = 1f)
+    {
+        float desiredSpeed = useInput ? moveDirecation.x * moveSpeed * speedScale : 0;
+
+        float acceleration = useInput && moveDirecation.x != 0 ? airborneAccleration : airborneDeceleration;
+        m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeed, acceleration * Time.deltaTime);
+    }
+
     public void UpdateJump()
     {
-        if (!m_Jump&&m_MoveVector.y>0.0f)
+        
+        if (!m_Jump && m_MoveVector.y > 0.0f)
         {
+            Debug.Log("Jump");
             m_MoveVector.y -= jumpAbortSpeedReduction * Time.deltaTime;
         }
     }

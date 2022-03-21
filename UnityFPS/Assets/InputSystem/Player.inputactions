@@ -27,7 +27,7 @@
                     "id": "8ce5e995-6558-4ebe-a905-cd10f5ff2544",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Hold(duration=0.2,pressPoint=0.3)"
                 }
             ],
             "bindings": [
