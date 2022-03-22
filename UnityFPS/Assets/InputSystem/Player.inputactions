@@ -28,13 +28,21 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold(duration=0.2,pressPoint=0.3)"
+                },
+                {
+                    "name": "Crouching",
+                    "type": "Button",
+                    "id": "90181487-80c9-4e3d-afce-3ef1828fed46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "1D Axis",
                     "id": "93a6008c-37f3-4e40-a88f-4472908faa38",
-                    "path": "2DVector",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -43,30 +51,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
+                    "name": "Negative",
                     "id": "bb81a76e-2322-4a0b-bc40-2e50507f7732",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "e70553a5-c4b4-4aab-af4e-1ea93df93c5d",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "98bfe139-bcd2-4304-a1c0-505c59bbf40b",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -76,8 +62,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "94a04b47-b6b8-4a38-8c4c-4c66241dd961",
+                    "name": "Positive",
+                    "id": "e70553a5-c4b4-4aab-af4e-1ea93df93c5d",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -105,6 +91,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55c9f0e0-e6c8-4214-be53-c3bc4134a962",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouching",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

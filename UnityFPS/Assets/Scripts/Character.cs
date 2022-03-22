@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     private Vector3 rawInputMovement;
     private Vector3 smoothInputMovemnt;
 
-    private Vector2 moveDirecation;
+    private float moveDirecation;
     private Vector2 m_MoveVector;
 
     private bool m_fire;
@@ -38,11 +38,13 @@ public class Character : MonoBehaviour
     private Coroutine fireCoroutine;
 
     private bool m_Jump;
+    private bool m_Crouching;
 
     private Animator m_Animator;
 
     protected readonly int m_HashHorizontalSpeedPara = Animator.StringToHash("HorizontalSpeed");
     protected readonly int m_HashGroundedPara = Animator.StringToHash("Grounded");
+    protected readonly int m_HashCrouchingPara = Animator.StringToHash("Crouching");
 
     protected const float k_GroundedStickingVelocityMultiplier = 3f;
 
@@ -76,10 +78,27 @@ public class Character : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext value)
     {
-        moveDirecation = value.ReadValue<Vector2>();
+        moveDirecation = value.ReadValue<float>();
        
     }
 
+    public void OnCrouching(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            m_Crouching = true;
+        }
+        if (value.canceled)
+        {
+            m_Crouching = false;
+        }
+    }
+
+    public void CheckForCrouching()
+    {
+        m_Animator.SetBool(m_HashCrouchingPara, m_Crouching);
+        Debug.Log("Crouching " + m_Crouching);
+    }
     public void JumpInput(InputAction.CallbackContext context)
     {
         m_Jump = context.started;
@@ -164,9 +183,9 @@ public class Character : MonoBehaviour
     public void GroundedHorizonalMovement(bool useInput,float speedScale = 1f)
     {
         
-        float desiredSpeed = useInput ? moveDirecation.x * moveSpeed * speedScale : 0;
+        float desiredSpeed = useInput ? moveDirecation * moveSpeed * speedScale : 0;
         
-        float acceleration = useInput && moveDirecation.x != 0 ? groundAccleration : groundDeceleration;
+        float acceleration = useInput && moveDirecation != 0 ? groundAccleration : groundDeceleration;
         m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeed, acceleration * Time.deltaTime);
        
     }
@@ -175,7 +194,7 @@ public class Character : MonoBehaviour
     {
         m_MoveVector.y -= gravity * Time.deltaTime;
 
-        if (m_MoveVector.y<-gravity*Time.deltaTime*k_GroundedStickingVelocityMultiplier)
+        if (m_MoveVector.y < -gravity * Time.deltaTime * k_GroundedStickingVelocityMultiplier)
         {
             m_MoveVector.y = -gravity * Time.deltaTime * k_GroundedStickingVelocityMultiplier;
         }
@@ -193,9 +212,9 @@ public class Character : MonoBehaviour
 
     public void AirborneHorizonalMovement(bool useInput, float speedScale = 1f)
     {
-        float desiredSpeed = useInput ? moveDirecation.x * moveSpeed * speedScale : 0;
+        float desiredSpeed = useInput ? moveDirecation * moveSpeed * speedScale : 0;
 
-        float acceleration = useInput && moveDirecation.x != 0 ? airborneAccleration : airborneDeceleration;
+        float acceleration = useInput && moveDirecation != 0 ? airborneAccleration : airborneDeceleration;
         m_MoveVector.x = Mathf.MoveTowards(m_MoveVector.x, desiredSpeed, acceleration * Time.deltaTime);
     }
 
@@ -204,7 +223,7 @@ public class Character : MonoBehaviour
         
         if (!m_Jump && m_MoveVector.y > 0.0f)
         {
-            Debug.Log("Jump");
+            
             m_MoveVector.y -= jumpAbortSpeedReduction * Time.deltaTime;
         }
     }

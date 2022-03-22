@@ -1,0 +1,1618 @@
+fileFormatVersion: 2
+guid: c49a5c479a5f47f4387e5af9eae09d13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2463213141096165019
+    second: titleScreenTexturesUberScreenAtlas4_0
+  - first:
+      213: -8696890956112816684
+    second: titleScreenTexturesUberScreenAtlas4_1
+  - first:
+      213: -2051450616856911670
+    second: titleScreenTexturesUberScreenAtlas4_2
+  - first:
+      213: -6631570697269282093
+    second: titleScreenTexturesUberScreenAtlas4_3
+  - first:
+      213: 781477243647939489
+    second: titleScreenTexturesUberScreenAtlas4_4
+  - first:
+      213: 8789297193608160830
+    second: titleScreenTexturesUberScreenAtlas4_5
+  - first:
+      213: 2095288283863872149
+    second: titleScreenTexturesUberScreenAtlas4_6
+  - first:
+      213: 8555968459499216580
+    second: titleScreenTexturesUberScreenAtlas4_7
+  - first:
+      213: -8045383927409918306
+    second: titleScreenTexturesUberScreenAtlas4_8
+  - first:
+      213: -6603791069076858693
+    second: titleScreenTexturesUberScreenAtlas4_9
+  - first:
+      213: -4308640941758019911
+    second: titleScreenTexturesUberScreenAtlas4_10
+  - first:
+      213: -1725242909084442977
+    second: titleScreenTexturesUberScreenAtlas4_11
+  - first:
+      213: 4577882195090106643
+    second: titleScreenTexturesUberScreenAtlas4_12
+  - first:
+      213: 4984132921299339471
+    second: titleScreenTexturesUberScreenAtlas4_13
+  - first:
+      213: -7864444492191479540
+    second: titleScreenTexturesUberScreenAtlas4_14
+  - first:
+      213: 6890478307916218568
+    second: titleScreenTexturesUberScreenAtlas4_15
+  - first:
+      213: 3427812089424113293
+    second: titleScreenTexturesUberScreenAtlas4_16
+  - first:
+      213: 2688509498907427253
+    second: titleScreenTexturesUberScreenAtlas4_17
+  - first:
+      213: -4971684247075613419
+    second: titleScreenTexturesUberScreenAtlas4_18
+  - first:
+      213: -8826179449522847687
+    second: titleScreenTexturesUberScreenAtlas4_19
+  - first:
+      213: 8136515946756766827
+    second: titleScreenTexturesUberScreenAtlas4_20
+  - first:
+      213: 7127181086831048568
+    second: titleScreenTexturesUberScreenAtlas4_21
+  - first:
+      213: 605786081349073081
+    second: titleScreenTexturesUberScreenAtlas4_22
+  - first:
+      213: 9029402105148281522
+    second: titleScreenTexturesUberScreenAtlas4_23
+  - first:
+      213: 1389862992389740579
+    second: titleScreenTexturesUberScreenAtlas4_24
+  - first:
+      213: 4871308384084869162
+    second: titleScreenTexturesUberScreenAtlas4_25
+  - first:
+      213: -2619165406566608545
+    second: titleScreenTexturesUberScreenAtlas4_26
+  - first:
+      213: 3733509490064702088
+    second: titleScreenTexturesUberScreenAtlas4_27
+  - first:
+      213: -4826327135062070975
+    second: titleScreenTexturesUberScreenAtlas4_28
+  - first:
+      213: -5879460609016108333
+    second: titleScreenTexturesUberScreenAtlas4_29
+  - first:
+      213: 6271869818113354032
+    second: titleScreenTexturesUberScreenAtlas4_30
+  - first:
+      213: 4572092538288939337
+    second: titleScreenTexturesUberScreenAtlas4_31
+  - first:
+      213: -1315825666969112612
+    second: titleScreenTexturesUberScreenAtlas4_32
+  - first:
+      213: -2570837261619070800
+    second: titleScreenTexturesUberScreenAtlas4_33
+  - first:
+      213: -6130025758475907512
+    second: titleScreenTexturesUberScreenAtlas4_34
+  - first:
+      213: -5988098604942929109
+    second: titleScreenTexturesUberScreenAtlas4_35
+  - first:
+      213: -2769737872885099255
+    second: titleScreenTexturesUberScreenAtlas4_36
+  - first:
+      213: 4230808983658612302
+    second: titleScreenTexturesUberScreenAtlas4_37
+  - first:
+      213: 3434697921983760182
+    second: titleScreenTexturesUberScreenAtlas4_38
+  - first:
+      213: 7900909199000700851
+    second: titleScreenTexturesUberScreenAtlas4_39
+  - first:
+      213: 7993655557505877150
+    second: titleScreenTexturesUberScreenAtlas4_40
+  - first:
+      213: -4011251544972006908
+    second: titleScreenTexturesUberScreenAtlas4_41
+  - first:
+      213: 3528957529831603419
+    second: titleScreenTexturesUberScreenAtlas4_42
+  - first:
+      213: -7141015961374707464
+    second: titleScreenTexturesUberScreenAtlas4_43
+  - first:
+      213: -9011254682607253159
+    second: titleScreenTexturesUberScreenAtlas4_44
+  - first:
+      213: -1028712516837040791
+    second: titleScreenTexturesUberScreenAtlas4_45
+  - first:
+      213: -5972342868147258013
+    second: titleScreenTexturesUberScreenAtlas4_46
+  - first:
+      213: 9221228535281992275
+    second: titleScreenTexturesUberScreenAtlas4_47
+  - first:
+      213: 6906047596193885066
+    second: titleScreenTexturesUberScreenAtlas4_48
+  - first:
+      213: 851429320989040262
+    second: titleScreenTexturesUberScreenAtlas4_49
+  - first:
+      213: -4190677503714784502
+    second: titleScreenTexturesUberScreenAtlas4_50
+  - first:
+      213: 7358720069369787301
+    second: titleScreenTexturesUberScreenAtlas4_51
+  - first:
+      213: -3250152607954873789
+    second: titleScreenTexturesUberScreenAtlas4_52
+  - first:
+      213: -3944074097645799564
+    second: titleScreenTexturesUberScreenAtlas4_53
+  - first:
+      213: 7996561358660486966
+    second: titleScreenTexturesUberScreenAtlas4_54
+  - first:
+      213: -4547669241510915824
+    second: titleScreenTexturesUberScreenAtlas4_55
+  - first:
+      213: -6095603301523963985
+    second: titleScreenTexturesUberScreenAtlas4_56
+  - first:
+      213: -3794359644128088464
+    second: titleScreenTexturesUberScreenAtlas4_57
+  - first:
+      213: -7953545252442578681
+    second: titleScreenTexturesUberScreenAtlas4_58
+  - first:
+      213: 6487497582699873915
+    second: titleScreenTexturesUberScreenAtlas4_59
+  - first:
+      213: -8405074612348557051
+    second: titleScreenTexturesUberScreenAtlas4_60
+  - first:
+      213: 949350571231833828
+    second: titleScreenTexturesUberScreenAtlas4_61
+  - first:
+      213: -1772364887830328454
+    second: titleScreenTexturesUberScreenAtlas4_62
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 1
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_0
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 1353
+        width: 218
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e6c191d471f2220800000000000000
+      internalID: 2463213141096165019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1336
+        width: 492
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d59696e0cf6e4780800000000000000
+      internalID: -8696890956112816684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_2
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 1344
+        width: 241
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0ecf37888c783e0800000000000000
+      internalID: -2051450616856911670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2032
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3daff5e169de7f3a0800000000000000
+      internalID: -6631570697269282093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1973
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3dfa3a96d58da00800000000000000
+      internalID: 781477243647939489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1995
+        width: 56
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e362a5ada3bd9f970800000000000000
+      internalID: 8789297193608160830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1971
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5927eb5c795f31d10800000000000000
+      internalID: 2095288283863872149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1973
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce95e18bf7ecb670800000000000000
+      internalID: 8555968459499216580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_8
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1863
+        width: 348
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e381db1fd095090800000000000000
+      internalID: -8045383927409918306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_9
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1855
+        width: 316
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8d6c4d20f9a54a0800000000000000
+      internalID: -6603791069076858693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_10
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 1845
+        width: 168
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b60fc144e1a434c0800000000000000
+      internalID: -4308640941758019911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_11
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1979
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e92c407b4be08e0800000000000000
+      internalID: -1725242909084442977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_12
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1900
+        width: 93
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3196eed0a97e78f30800000000000000
+      internalID: 4577882195090106643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_13
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 1855
+        width: 257
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8806f1c723b2540800000000000000
+      internalID: 4984132921299339471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_14
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 1855
+        width: 252
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c094627e661ebd290800000000000000
+      internalID: -7864444492191479540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_15
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1957
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c081e38385ef9f50800000000000000
+      internalID: 6890478307916218568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_16
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1957
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ee9ea1fe8029f20800000000000000
+      internalID: 3427812089424113293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_17
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1957
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b104a915218f4520800000000000000
+      internalID: 2688509498907427253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_18
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1957
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51517a5b487010bb0800000000000000
+      internalID: -4971684247075613419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_19
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1957
+        width: 6
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9308653cd8c138580800000000000000
+      internalID: -8826179449522847687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_20
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1957
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6cfcbbf426bae070800000000000000
+      internalID: 8136515946756766827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_21
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1956
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8777272ef65d8e260800000000000000
+      internalID: 7127181086831048568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_22
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1855
+        width: 110
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8ffac3b3f286800800000000000000
+      internalID: 605786081349073081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_23
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1368
+        width: 84
+        height: 539
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b21783ff51ee4d70800000000000000
+      internalID: 9029402105148281522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_24
+      rect:
+        serializedVersion: 2
+        x: 2006
+        y: 1466
+        width: 26
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3281adb1709c94310800000000000000
+      internalID: 1389862992389740579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_25
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 921
+        width: 236
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20c2c08a2d5a9340800000000000000
+      internalID: 4871308384084869162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_26
+      rect:
+        serializedVersion: 2
+        x: 2002
+        y: 1342
+        width: 32
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f511b9d80fad6abd0800000000000000
+      internalID: -2619165406566608545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_27
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1238
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a3bd8a91710d330800000000000000
+      internalID: 3733509490064702088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_28
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1028
+        width: 64
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149ebc8aa01750db0800000000000000
+      internalID: -4826327135062070975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_29
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 882
+        width: 365
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da61b01ab5f76ea0800000000000000
+      internalID: -5879460609016108333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_30
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 835
+        width: 167
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039e32aae582a0750800000000000000
+      internalID: 6271869818113354032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_31
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 962
+        width: 101
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9412de880f5537f30800000000000000
+      internalID: 4572092538288939337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_32
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 839
+        width: 61
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfe6f5078f3dbde0800000000000000
+      internalID: -1315825666969112612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_33
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 439
+        width: 518
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b87bd5a12d825cd0800000000000000
+      internalID: -2570837261619070800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_34
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 457
+        width: 278
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e8c0a0d06cdeaa0800000000000000
+      internalID: -6130025758475907512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_35
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 515
+        width: 250
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b235d5c8b0006eca0800000000000000
+      internalID: -5988098604942929109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_36
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 543
+        width: 292
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905dcbd441aef89d0800000000000000
+      internalID: -2769737872885099255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_37
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 784
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46c087da5ad6ba30800000000000000
+      internalID: 4230808983658612302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_38
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 666
+        width: 131
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6374d9eef8f7aaf20800000000000000
+      internalID: 3434697921983760182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_39
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 675
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b78d014e0ba5ad60800000000000000
+      internalID: 7900909199000700851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_40
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 747
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9407f9906b2fee60800000000000000
+      internalID: 7993655557505877150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_41
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 696
+        width: 35
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ae43de8fb2558c0800000000000000
+      internalID: -4011251544972006908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_42
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 655
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc7d091d2069f030800000000000000
+      internalID: 3528957529831603419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_43
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 664
+        width: 34
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0bdde51d306ec90800000000000000
+      internalID: -7141015961374707464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_44
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 638
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9598e9e1c9791f280800000000000000
+      internalID: -9011254682607253159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_45
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 536
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d1ee19a6749b1f0800000000000000
+      internalID: -1028712516837040791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_46
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 538
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36dbe33edc9fd1da0800000000000000
+      internalID: -5972342868147258013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_47
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 539
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352cd262f7268ff70800000000000000
+      internalID: 9221228535281992275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_48
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 602
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ba31de2b537df50800000000000000
+      internalID: 6906047596193885066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_49
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 571
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e57e4d472e0db00800000000000000
+      internalID: 851429320989040262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_50
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 560
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b0cd67309b7d5c0800000000000000
+      internalID: -4190677503714784502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_51
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 531
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3f2583aec6f1660800000000000000
+      internalID: 7358720069369787301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_52
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 11
+        width: 276
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3425a015c6325e2d0800000000000000
+      internalID: -3250152607954873789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_53
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 519
+        width: 37
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477b00a3185d349c0800000000000000
+      internalID: -3944074097645799564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_54
+      rect:
+        serializedVersion: 2
+        x: 1941
+        y: 484
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637c297203e79fe60800000000000000
+      internalID: 7996561358660486966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_55
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 44
+        width: 664
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01195cf5bee63e0c0800000000000000
+      internalID: -4547669241510915824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_56
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 472
+        width: 36
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf37f8d711186ba0800000000000000
+      internalID: -6095603301523963985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_57
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 448
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07eeaadc10ab75bc0800000000000000
+      internalID: -3794359644128088464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_58
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 422
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7016a2b8bb45f9190800000000000000
+      internalID: -7953545252442578681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_59
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 391
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b760802eda8380a50800000000000000
+      internalID: 6487497582699873915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_60
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 282
+        width: 210
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5096f4c0c2d2b5b80800000000000000
+      internalID: -8405074612348557051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_61
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 3
+        width: 110
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee669d8055cc2d00800000000000000
+      internalID: 949350571231833828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titleScreenTexturesUberScreenAtlas4_62
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 76
+        width: 634
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b8f70668b4767e0800000000000000
+      internalID: -1772364887830328454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

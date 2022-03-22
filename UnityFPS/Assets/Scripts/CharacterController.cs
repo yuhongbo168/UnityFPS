@@ -85,7 +85,7 @@ public class CharacterController : MonoBehaviour
 
         CheckCapsuleEndCollisions();
 
-        Debug.Log(IsGrounded);
+       
     }
 
     void CheckCapsuleEndCollisions()
@@ -116,7 +116,7 @@ public class CharacterController : MonoBehaviour
 
         }
 
-        Debug.DrawRay(m_RaycastPositions, raycastDirection);
+        
 
         int count = Physics2D.Raycast(m_RaycastPositions, raycastDirection, m_ContactFilter, m_HitBuffet, raycastDistance);
 
@@ -138,7 +138,7 @@ public class CharacterController : MonoBehaviour
             groundNormal.Normalize();
         }
 
-        Debug.Log("hitcount " + count + " m_FoundHitscollider " + m_FoundHits.collider);
+        
 
         Vector2 relativeVelocity = Velocity;
 

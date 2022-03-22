@@ -10,6 +10,7 @@ public class locomationSMB : ScenceLinkSMB<Character>
         m_TMonoBehavious.GroundedHorizonalMovement(true);
         m_TMonoBehavious.GroundedVerticalMovement();
         m_TMonoBehavious.CheckForGrounded();
+        m_TMonoBehavious.CheckForCrouching();
         if (m_TMonoBehavious.CheckForJumpInput())
         {
             m_TMonoBehavious.SetVerticalMovement(m_TMonoBehavious.jumpSpeed);
