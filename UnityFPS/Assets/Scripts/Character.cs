@@ -7,6 +7,8 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
 
+    public SpriteRenderer spriteRenderer;
+
     public CharacterController PC;
     public float movementSmoothingSpeed = 1f;
     public float moveSpeed = 3f;
@@ -14,9 +16,11 @@ public class Character : MonoBehaviour
     public float jumpSpeed = 40f;
     public float jumpAbortSpeedReduction = 100f;
 
-
+    public bool spriteOriginallyFacesLeft;
     public BulletPool bulletPool;
-    public Transform currenShootPosition;
+    public Transform facingLeftBulletSpawnPoint;
+    public Transform facingRightBulletSpawnPoint;
+    private Transform m_currenShootPosition;
     public float bulletSpeed = 10f;
 
     public float groundAccleration = 100f;
@@ -52,8 +56,14 @@ public class Character : MonoBehaviour
     {
         PC = GetComponent<CharacterController>();
         m_Animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        m_currenShootPosition = spriteOriginallyFacesLeft ? facingLeftBulletSpawnPoint : facingRightBulletSpawnPoint;
+
     }
-    // Start is called before the first frame update
+
+   
+
     void Start()
     {
 
@@ -97,7 +107,7 @@ public class Character : MonoBehaviour
     public void CheckForCrouching()
     {
         m_Animator.SetBool(m_HashCrouchingPara, m_Crouching);
-        Debug.Log("Crouching " + m_Crouching);
+       
     }
     public void JumpInput(InputAction.CallbackContext context)
     {
@@ -128,8 +138,11 @@ public class Character : MonoBehaviour
 
     protected void SpawnBullet()
     {
-        BulletObject bullet = bulletPool.Pop(currenShootPosition.position);
-        bullet.rigidbody2D.velocity = new Vector2(bulletSpeed, -0f);
+        BulletObject bullet = bulletPool.Pop(m_currenShootPosition.position);
+
+        bool faceLeft = m_currenShootPosition == facingLeftBulletSpawnPoint;
+        bullet.rigidbody2D.velocity = new Vector2(faceLeft? -bulletSpeed:bulletSpeed, -0f);
+        bullet.spriteRenderer.flipX = faceLeft ^ bullet.buller.spriteOriginallyFacesLeft;
     }
 
 
@@ -137,12 +150,10 @@ public class Character : MonoBehaviour
     {
  
         if (value.started)
-        {       
-            if (Time.time > m_NextShotTime)
-            {
-                CheckAndFireGun();
-                m_NextShotTime = Time.time + m_ShotSpawnGap;
-            }
+        {
+
+            CheckAndFireGun();
+     
         }
         else if (value.canceled)
         {
@@ -225,6 +236,24 @@ public class Character : MonoBehaviour
         {
             
             m_MoveVector.y -= jumpAbortSpeedReduction * Time.deltaTime;
+        }
+    }
+
+    public void UpdateFacing()
+    {
+        bool faceLeft = moveDirecation < 0f;
+        bool faceRight = moveDirecation > 0f;
+
+        if (faceLeft)
+        {
+            spriteRenderer.flipX = !spriteOriginallyFacesLeft;
+            m_currenShootPosition = facingLeftBulletSpawnPoint;
+        }
+
+        if (faceRight)
+        {
+            spriteRenderer.flipX = spriteOriginallyFacesLeft;
+            m_currenShootPosition = facingRightBulletSpawnPoint;
         }
     }
 

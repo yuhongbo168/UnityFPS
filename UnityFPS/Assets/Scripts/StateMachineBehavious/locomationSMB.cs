@@ -7,6 +7,7 @@ public class locomationSMB : ScenceLinkSMB<Character>
 
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        m_TMonoBehavious.UpdateFacing();
         m_TMonoBehavious.GroundedHorizonalMovement(true);
         m_TMonoBehavious.GroundedVerticalMovement();
         m_TMonoBehavious.CheckForGrounded();
