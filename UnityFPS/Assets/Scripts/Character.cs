@@ -7,6 +7,9 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
 
+    static protected Character s_PlayerCharacter;
+    static public Character PlayerCharacter { get { return s_PlayerCharacter; } }
+
     public SpriteRenderer spriteRenderer;
 
     public CharacterController PC;
@@ -54,6 +57,8 @@ public class Character : MonoBehaviour
 
     private void Awake()
     {
+        s_PlayerCharacter = this;
+
         PC = GetComponent<CharacterController>();
         m_Animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();

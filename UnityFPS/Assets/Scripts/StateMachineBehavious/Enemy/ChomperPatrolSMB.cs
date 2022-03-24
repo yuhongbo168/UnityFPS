@@ -10,12 +10,15 @@ public class ChomperPatrolSMB : ScenceLinkSMB<EnemyBehaviour>
         float dist = m_TMonoBehavious.speed;
         if (m_TMonoBehavious.CheckForObstacle(dist))
         {
-            m_TMonoBehavious.SetHorizontalSpeed(dist);
-            Debug.Log("CheckForObstacle");
+            m_TMonoBehavious.SetHorizontalSpeed(-dist);
+            m_TMonoBehavious.UpdateFacing(); 
+            
         }
         else
         {
             m_TMonoBehavious.SetHorizontalSpeed(dist);
         }
+
+        m_TMonoBehavious.ScanForPlayer();
     }
 }
