@@ -11,6 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
 {
     static Collider2D[] s_ColliderCache = new Collider2D[16];
 
+
+    public Transform gameObejct;
     public Transform target
     {
         get { return m_Target; }
@@ -23,6 +25,9 @@ public class EnemyBehaviour : MonoBehaviour
     public float viewDirection = 0.0f;
     public float viewDistance;
     public float viewFov=20f;
+    public float meleeRange = 3.0f;
+
+    public float timeBeforeTargetLost = 3.0f;
 
     public bool spriteFaceLeft = false;
 
@@ -40,6 +45,16 @@ public class EnemyBehaviour : MonoBehaviour
     protected Vector2 m_SpriteForward;
 
     protected Vector2 m_moveVector;
+
+    protected float m_TimeSinceLastTargetView;
+
+    protected readonly int m_HashSpottedPara = Animator.StringToHash("Spotted");
+    protected readonly int m_HashShootingPara = Animator.StringToHash("Shooting");
+    protected readonly int m_HashTargetLostPara = Animator.StringToHash("TargetLost");
+    protected readonly int m_HashMeleeAttackPara = Animator.StringToHash("MelleAttack");
+    protected readonly int m_HashHitPara = Animator.StringToHash("Hit");
+    protected readonly int m_HashDeathPara = Animator.StringToHash("Death");
+    protected readonly int m_HashGroundedPara = Animator.StringToHash("Grounded");
 
     public Vector3 moveVector
     {
@@ -80,8 +95,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-
+    {    
         m_moveVector.y = Mathf.Max(m_moveVector.y - gravity * Time.deltaTime, -gravity);
 
         m_CharacterController.Move(m_moveVector * Time.deltaTime);
@@ -96,8 +110,6 @@ public class EnemyBehaviour : MonoBehaviour
             return true;
         }
 
-       
-
         Vector3 castingPosition = (Vector2)(transform.position + m_LocalBounds.center) + m_SpriteForward * m_LocalBounds.extents.x;
         Debug.DrawLine(castingPosition, castingPosition + Vector3.down * (m_LocalBounds.extents.y + 0.2f));
 
@@ -107,6 +119,14 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         return false;
+    }
+
+    void UpdateTimers()
+    {
+        if (m_TimeSinceLastTargetView > 0.0f)
+        {
+            m_TimeSinceLastTargetView -= Time.deltaTime;
+        }
     }
 
     public void SetHorizontalSpeed(float horizontalSpeed)
@@ -156,19 +176,40 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         Vector3 testForward = Quaternion.Euler(0, 0, spriteFaceLeft ? Mathf.Sign(m_SpriteForward.x) * -viewDirection : Mathf.Sign(m_SpriteForward.x) * viewDirection) * m_SpriteForward;
-
+        
         float angle = Vector3.Angle(testForward, dir);
 
-        
-        if (angle>viewFov*0.5f)
+        if (angle > viewFov * 0.5f)
+        {
+            return;
+        } 
+
+        m_Target = Character.PlayerCharacter.transform;
+        m_TimeSinceLastTargetView = timeBeforeTargetLost;
+
+        m_Animator.SetTrigger(m_HashSpottedPara);
+
+    }
+
+    public void OrientToTarget()
+    {
+        if (m_Target == null)
         {
             return;
         }
 
-        m_Target = Character.PlayerCharacter.transform;
+        Vector3 toTarget = m_Target.position - transform.position;
 
-        Debug.Log(m_Target);
+        if (Vector2.Dot(toTarget, m_SpriteForward) < 0)
+        {
+            SetFacingData(Mathf.RoundToInt(-m_SpriteForward.x));
+        }
+    }
 
+    public void ForgetTarget()
+    {
+        m_Animator.SetTrigger(m_HashTargetLostPara);
+        m_Target = null;
     }
 
 }
