@@ -9,8 +9,7 @@ public class ChomperRunToTargetSMB : ScenceLinkSMB<EnemyBehaviour>
         base.OnSLStateEnter(animator, stateInfo, layerIndex);
 
         m_TMonoBehavious.OrientToTarget();
-
-        Debug.Log("FindTarget");
+        
      
     }
 
@@ -18,8 +17,10 @@ public class ChomperRunToTargetSMB : ScenceLinkSMB<EnemyBehaviour>
     {
         base.OnSLStateNoTransitionUpdate(animator, stateInfo, layerIndex);
 
-        float amount = m_TMonoBehavious.speed * 2f;
+        m_TMonoBehavious.ChekTargetStillVisible();
+        m_TMonoBehavious.CheckMeleeAttack();
 
+        float amount = m_TMonoBehavious.speed * 2f;
         if (m_TMonoBehavious.CheckForObstacle(amount))
         {
             m_TMonoBehavious.ForgetTarget();
@@ -28,5 +29,12 @@ public class ChomperRunToTargetSMB : ScenceLinkSMB<EnemyBehaviour>
         {
             m_TMonoBehavious.SetHorizontalSpeed(amount);
         }
+    }
+
+    public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        base.OnSLStateExit(animator, stateInfo, layerIndex);
+
+        m_TMonoBehavious.SetHorizontalSpeed(0);
     }
 }

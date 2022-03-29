@@ -11,8 +11,6 @@ public class EnemyBehaviour : MonoBehaviour
 {
     static Collider2D[] s_ColliderCache = new Collider2D[16];
 
-
-    public Transform gameObejct;
     public Transform target
     {
         get { return m_Target; }
@@ -24,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public float viewDirection = 0.0f;
     public float viewDistance;
+
+    [Range(0.0f,360f)]
     public float viewFov=20f;
     public float meleeRange = 3.0f;
 
@@ -51,7 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
     protected readonly int m_HashSpottedPara = Animator.StringToHash("Spotted");
     protected readonly int m_HashShootingPara = Animator.StringToHash("Shooting");
     protected readonly int m_HashTargetLostPara = Animator.StringToHash("TargetLost");
-    protected readonly int m_HashMeleeAttackPara = Animator.StringToHash("MelleAttack");
+    protected readonly int m_HashMeleeAttackPara = Animator.StringToHash("MeleeAttack");
     protected readonly int m_HashHitPara = Animator.StringToHash("Hit");
     protected readonly int m_HashDeathPara = Animator.StringToHash("Death");
     protected readonly int m_HashGroundedPara = Animator.StringToHash("Grounded");
@@ -73,6 +73,13 @@ public class EnemyBehaviour : MonoBehaviour
             m_SpriteForward = -m_SpriteForward;
         }
 
+
+        
+    }
+
+    private void OnEnable()
+    {
+        m_Collider.enabled = true;
     }
 
     private void Start()
@@ -99,7 +106,8 @@ public class EnemyBehaviour : MonoBehaviour
         m_moveVector.y = Mathf.Max(m_moveVector.y - gravity * Time.deltaTime, -gravity);
 
         m_CharacterController.Move(m_moveVector * Time.deltaTime);
-    
+
+        UpdateTimers();
     }
 
     public bool CheckForObstacle(float forwardDistance)
@@ -201,7 +209,7 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 toTarget = m_Target.position - transform.position;
 
         if (Vector2.Dot(toTarget, m_SpriteForward) < 0)
-        {
+        {           
             SetFacingData(Mathf.RoundToInt(-m_SpriteForward.x));
         }
     }
@@ -211,5 +219,83 @@ public class EnemyBehaviour : MonoBehaviour
         m_Animator.SetTrigger(m_HashTargetLostPara);
         m_Target = null;
     }
+
+    public void ChekTargetStillVisible()
+    {
+        if (m_Target == null )
+        {
+            return;
+        }
+
+
+        Vector3 toTarget = m_Target.position - transform.position;
+
+        if (toTarget.sqrMagnitude < viewDistance * viewDistance)
+        {
+            Vector3 testForward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * m_SpriteForward;
+            //if (m_SpriteRenderer.flipX)
+            //{
+            //    testForward.x = -testForward.x;
+            //}
+
+            float angle = Vector3.Angle(testForward, toTarget);
+    
+            if (angle <= viewFov * 0.5f)
+            {
+                
+                m_TimeSinceLastTargetView = timeBeforeTargetLost;
+                
+            }
+
+        }
+
+        if (m_TimeSinceLastTargetView <= 0.0f)
+        {
+           
+            ForgetTarget();
+        }
+
+    }
+
+    public void CheckMeleeAttack()
+    {
+        if (m_Target == null)
+        {
+            return;
+        }
+
+        if ((m_Target.transform.position - transform.position).sqrMagnitude < (meleeRange * meleeRange))
+        {
+            m_Animator.SetTrigger(m_HashMeleeAttackPara);         
+        }
+       
+    }
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 forward = spriteFaceLeft ? Vector2.left : Vector2.right;
+        forward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * forward;
+
+        if (GetComponent<SpriteRenderer>().flipX)
+        {
+            forward.x = -forward.x;
+        }
+
+        Vector3 endpoint = transform.position + (Quaternion.Euler(0, 0, viewFov * 0.5f) * forward);
+
+        Handles.color = new Color(0, 1.0f, 0, 0.2f);
+        //Handles.DrawSolidArc(transform.position, -Vector3.forward, (endpoint - transform.position).normalized, viewFov, viewDistance);
+        Handles.DrawSolidArc(transform.position, -Vector3.forward, (endpoint - transform.position).normalized, viewFov, viewDistance);
+
+        Handles.color = new Color(1.0f, 0, 0, 0.1f);
+        Handles.DrawSolidDisc(transform.position, Vector3.back, meleeRange);
+
+    }
+
+
+#endif
+
 
 }
