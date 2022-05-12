@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
@@ -6,11 +6,11 @@ using UnityEngine;
 public class Damager : MonoBehaviour
 {
 
-    [System.Serializable]
+    [Serializable]
     public class DamagableEvent : UnityEvent<Damager,Damabeable>
     { }
 
-    [System.Serializable]
+    [Serializable]
     public class NonDamagableEvent : UnityEvent<Damager>
     { }
 
@@ -23,9 +23,13 @@ public class Damager : MonoBehaviour
     public bool canHitTriggers;
     public LayerMask hittableLayers;
     public bool ignoreInvincibility = false;
+    public bool canRangeAttack;
+    public Collider2D lastHIt { get { return m_LastHit; } }
    
+    public bool disableDamageAterHit = false;
 
     public DamagableEvent OnDamageableHit;
+   
     public NonDamagableEvent OnNonDamageableHit;
 
     protected Transform m_DamagerTransform;
@@ -34,6 +38,7 @@ public class Damager : MonoBehaviour
     protected Collider2D[] m_AttackOverlapResults = new Collider2D[10];
     protected Collider2D m_LastHit;
 
+    protected bool m_CanDamage = false;
     private void Awake()
     {
 
@@ -47,6 +52,10 @@ public class Damager : MonoBehaviour
         }
 
         m_DamagerTransform = transform;
+
+        EnableDamage();
+
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -56,9 +65,15 @@ public class Damager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!m_CanDamage)
+        {
+            return;
+        }
+
         Vector2 scale = m_DamagerTransform.lossyScale;
 
         Vector2 facingOffset = Vector2.Scale(offset, scale);
+
         if (offsetBasedOnSpriteFacing && spriteRenderer !=null && spriteRenderer.flipX != m_SpriteOriginallyFlipped)
         {
             facingOffset = new Vector2(-offset.x * scale.x, offset.y * scale.y);
@@ -76,23 +91,41 @@ public class Damager : MonoBehaviour
             
             m_LastHit = m_AttackOverlapResults[i];
             Damabeable damageable = m_LastHit.GetComponent<Damabeable>();
-
+            
             if (damageable)
             {
-
+                
                 OnDamageableHit.Invoke(this, damageable);
+
+                if (canRangeAttack)
+                {
+                    return;
+                }
                 damageable.TakeDamage(this, ignoreInvincibility);
+                damageable.OnSetHealth.Invoke(damageable);
+                               
+                if (disableDamageAterHit)
+                {
+                    DisableDamage();
+                }
             }
             else
             {
+                
                 OnNonDamageableHit.Invoke(this);
             }
         }
 
     }
-    // Update is called once per frame
-    void Update()
+
+    public void EnableDamage()
     {
+        m_CanDamage = true;
         
     }
+    public void DisableDamage()
+    {
+        m_CanDamage = false;
+    }
+  
 }

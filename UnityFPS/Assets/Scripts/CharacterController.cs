@@ -23,9 +23,11 @@ public class CharacterController : MonoBehaviour
     private Vector2 m_CrreuntMovementVector;
 
     private RaycastHit2D[] m_HitBuffet = new RaycastHit2D[5];
-    private RaycastHit2D m_FoundHits = new RaycastHit2D();
-    private Collider2D m_GroundedColliders = new Collider2D();
-    Vector2 m_RaycastPositions = new Vector2();
+    private RaycastHit2D[] m_FoundHits = new RaycastHit2D[3];
+
+    public Collider2D[] GroundColliders { get { return m_GroundedColliders; } }
+    private Collider2D[] m_GroundedColliders = new Collider2D[3];
+    Vector2[] m_RaycastPositions = new Vector2[3];
 
     public bool IsGrounded { get; protected set; }
     
@@ -42,9 +44,13 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    public void SetMove()
+ 
+    public void Teleport(Vector2 position)
     {
-
+        Vector2 delta = position - m_CrreuntMovementVector;
+        m_PriveousVector += delta;
+        m_CrreuntMovementVector = position;
+        rd.MovePosition(position);
     }
 
     public void Move(Vector2 newMovement)
@@ -58,19 +64,14 @@ public class CharacterController : MonoBehaviour
         rd = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
 
+        m_CrreuntMovementVector = rd.position;
+        m_PriveousVector = rd.position;
+
         m_ContactFilter.layerMask = groundedLayerMask;
         m_ContactFilter.useLayerMask = true;
         m_ContactFilter.useTriggers = false;
 
-    }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        Physics2D.queriesStartInColliders = false;
 
     }
 
@@ -85,10 +86,11 @@ public class CharacterController : MonoBehaviour
 
         CheckCapsuleEndCollisions();
 
+        
        
     }
 
-    void CheckCapsuleEndCollisions()
+   public void CheckCapsuleEndCollisions()
     {
         Vector2 raycastDirection;
         Vector2 raycastStart;
@@ -100,7 +102,10 @@ public class CharacterController : MonoBehaviour
             raycastDistance = 1f + groundedRaycastDistance;
 
             raycastDirection = Vector2.down;
-            m_RaycastPositions = raycastStart;
+
+            m_RaycastPositions[0] = raycastStart + Vector2.left*0.4f;
+            m_RaycastPositions[1] = raycastStart;
+            m_RaycastPositions[2] = raycastStart + Vector2.right * 0.4f;
 
         }
         else
@@ -111,34 +116,44 @@ public class CharacterController : MonoBehaviour
             raycastDirection = Vector2.down;
             Vector2 raycastStartBottomCentre = raycastStart + Vector2.down * (capsuleCollider.size.y * 0.5f /*- capsuleCollider.size.x * 0.5f*/);
 
-            m_RaycastPositions = raycastStartBottomCentre;
+            m_RaycastPositions[0] = raycastStartBottomCentre + Vector2.left * capsuleCollider.size.x * 0.5f ;
+            m_RaycastPositions[1] = raycastStartBottomCentre;
+            m_RaycastPositions[2] = raycastStartBottomCentre + Vector2.right * capsuleCollider.size.x * 0.5f;
 
 
         }
 
-        
 
-        int count = Physics2D.Raycast(m_RaycastPositions, raycastDirection, m_ContactFilter, m_HitBuffet, raycastDistance);
+        for (int i = 0; i < m_RaycastPositions.Length; i++)
+        {
+            int count = Physics2D.Raycast(m_RaycastPositions[i], raycastDirection, m_ContactFilter, m_HitBuffet, raycastDistance);
 
-        m_FoundHits = count > 0 ? m_HitBuffet[0] : new RaycastHit2D();
-        m_GroundedColliders = m_FoundHits.collider;
+            m_FoundHits[i] = count > 0 ? m_HitBuffet[0] : new RaycastHit2D();
+            m_GroundedColliders[i] = m_FoundHits[i].collider;
+
+
+        }
+
+       
 
 
         Vector2 groundNormal = Vector2.zero;
         int hitCount = 0;
 
-        if (m_FoundHits.collider!=null)
+        for (int i = 0; i < m_FoundHits.Length; i++)
         {
-            groundNormal += m_FoundHits.normal;
-            hitCount++;
+            if (m_FoundHits[i].collider != null)
+            {
+                groundNormal += m_FoundHits[i].normal;
+                hitCount++;
+            }
         }
+       
 
         if (hitCount > 0)
         {
             groundNormal.Normalize();
-        }
-
-        
+        }    
 
         Vector2 relativeVelocity = Velocity;
 
@@ -153,4 +168,5 @@ public class CharacterController : MonoBehaviour
 
 
     }
+
 }

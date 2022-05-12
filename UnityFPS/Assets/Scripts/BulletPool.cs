@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class BulletPool:ObjectPool<BulletPool, BulletObject,Vector2>
 {
-   
 
-    // Update is called once per frame
-    void Update()
+    static protected Dictionary<GameObject, BulletPool> s_PoolInstance = new Dictionary<GameObject, BulletPool>();
+
+    private void Awake()
     {
-        
+        if (prefab!=null&&!s_PoolInstance.ContainsKey(prefab))
+        {
+            s_PoolInstance.Add(prefab, this);
+        }
     }
+    static public BulletPool GetObjectPool(GameObject prefab,int initialPoolCount = 10)
+    {
+        BulletPool objPool = null;
+        if (!s_PoolInstance.TryGetValue(prefab,out objPool))
+        {
+            GameObject obj = new GameObject(prefab.name + "_Pool");
+            objPool = obj.AddComponent<BulletPool>();
+            objPool.prefab = prefab;
+            objPool.initialCount = initialPoolCount;
+
+            s_PoolInstance[prefab] = objPool;
+        }
+        return objPool;
+    }
+
 }
 
 public class BulletObject:PoolObject<BulletPool, BulletObject,Vector2>

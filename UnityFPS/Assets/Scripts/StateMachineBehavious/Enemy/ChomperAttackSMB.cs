@@ -12,4 +12,9 @@ public class ChomperAttackSMB : ScenceLinkSMB<EnemyBehaviour>
 
         m_TMonoBehavious.SetHorizontalSpeed(0);
     }
+
+    public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        m_TMonoBehavious.GroundedVerticalMovement();
+    }
 }

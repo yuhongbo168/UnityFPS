@@ -12,30 +12,35 @@ public class DamageEditor : Editor
     SerializedProperty m_Damage;
     SerializedProperty m_HittableLayers;
     SerializedProperty m_OnDamageableHit;
+    SerializedProperty m_OnNonDamagebleHit;
+    SerializedProperty m_CanRangerAttack;
+
+
     private void OnEnable()
     {
 
         m_HittableLayers = serializedObject.FindProperty("hittableLayers");
         m_Damage = serializedObject.FindProperty("damage");
         m_OnDamageableHit = serializedObject.FindProperty("OnDamageableHit");
+        m_OnNonDamagebleHit = serializedObject.FindProperty("OnNonDamageableHit");
+        m_CanRangerAttack = serializedObject.FindProperty("canRangeAttack");
 
     }
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
 
-        
-
         Damager myDamager = (Damager)target;
         myDamager.size = EditorGUILayout.Vector2Field("Size", myDamager.size);
         myDamager.offset = EditorGUILayout.Vector2Field("Offset", myDamager.offset);
         //myDamager.hittableLayers = EditorGUILayout.LabelField("hittableLayers", myDamager.hittableLayers.GetType().ToString());
-
-    
-
+   
         EditorGUILayout.PropertyField(m_HittableLayers);
         EditorGUILayout.PropertyField(m_Damage);
+        EditorGUILayout.PropertyField(m_CanRangerAttack);
         EditorGUILayout.PropertyField(m_OnDamageableHit);
+        EditorGUILayout.PropertyField(m_OnNonDamagebleHit);
+        
 
         serializedObject.ApplyModifiedProperties();
     }

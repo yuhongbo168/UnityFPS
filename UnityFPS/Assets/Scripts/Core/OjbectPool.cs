@@ -17,7 +17,6 @@ public abstract class ObjectPool<TPool, TObject,TInfo>: ObjectPool<TPool, TObjec
         }
 
     }
-
     public virtual TObject Pop(TInfo info)
     {
        
@@ -39,8 +38,6 @@ public abstract class ObjectPool<TPool, TObject,TInfo>: ObjectPool<TPool, TObjec
 
     }
 
-
-
 }
 public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
     where TPool:ObjectPool<TPool,TObject>
@@ -61,8 +58,7 @@ public abstract class ObjectPool<TPool,TObject> : MonoBehaviour
             TObject newitem = CreateNewObject();
             items.Add(newitem);
            
-        }
-        
+        }      
     }
 
     public TObject CreateNewObject()

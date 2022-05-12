@@ -1,0 +1,661 @@
+fileFormatVersion: 2
+guid: 1f1b0b19d34f73343b8ba21e86adfcfd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5434720235824904851
+    second: PurchaseEffect_Texture_0
+  - first:
+      213: 6265526911025575855
+    second: PurchaseEffect_Texture_1
+  - first:
+      213: -4516916527720807336
+    second: PurchaseEffect_Texture_2
+  - first:
+      213: 2922833148258758646
+    second: PurchaseEffect_Texture_3
+  - first:
+      213: -5312574921818200111
+    second: PurchaseEffect_Texture_4
+  - first:
+      213: -6293229568106653989
+    second: PurchaseEffect_Texture_5
+  - first:
+      213: -5705180513229719852
+    second: PurchaseEffect_Texture_6
+  - first:
+      213: 3495685610495852599
+    second: PurchaseEffect_Texture_7
+  - first:
+      213: -5313890758700779896
+    second: PurchaseEffect_Texture_8
+  - first:
+      213: -456265423213115050
+    second: PurchaseEffect_Texture_9
+  - first:
+      213: -8895160625698335518
+    second: PurchaseEffect_Texture_10
+  - first:
+      213: 1895721477851167079
+    second: PurchaseEffect_Texture_11
+  - first:
+      213: -8489611152923205637
+    second: PurchaseEffect_Texture_12
+  - first:
+      213: 6909398544931774953
+    second: PurchaseEffect_Texture_13
+  - first:
+      213: -2812404711760689992
+    second: PurchaseEffect_Texture_14
+  - first:
+      213: 7459462699067525623
+    second: PurchaseEffect_Texture_15
+  - first:
+      213: 2279825942033915870
+    second: PurchaseEffect_Texture_16
+  - first:
+      213: -3092400104216519259
+    second: PurchaseEffect_Texture_17
+  - first:
+      213: 2629168422912581481
+    second: PurchaseEffect_Texture_18
+  - first:
+      213: -4840680015882116081
+    second: PurchaseEffect_Texture_19
+  - first:
+      213: -7506773666476027860
+    second: PurchaseEffect_Texture_20
+  - first:
+      213: 3654147273083787498
+    second: PurchaseEffect_Texture_21
+  - first:
+      213: -894324388383168277
+    second: PurchaseEffect_Texture_22
+  - first:
+      213: 573176787140003226
+    second: PurchaseEffect_Texture_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65870a6dbef394b0800000000000000
+      internalID: -5434720235824904851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 768
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa77456878f93f650800000000000000
+      internalID: 6265526911025575855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 768
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8544c158950b051c0800000000000000
+      internalID: -4516916527720807336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 768
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff23b3334dff8820800000000000000
+      internalID: 2922833148258758646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 768
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7a06e7141f546b0800000000000000
+      internalID: -5312574921818200111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_5
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 768
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6940ffc05f9a8a0800000000000000
+      internalID: -6293229568106653989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d63671fc8023d0b0800000000000000
+      internalID: -5705180513229719852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_7
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 512
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730cc04ba8b238030800000000000000
+      internalID: 3495685610495852599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 512
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886b86852844146b0800000000000000
+      internalID: -5313890758700779896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 512
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659c616d3050ba9f0800000000000000
+      internalID: -456265423213115050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 512
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4953d1a8a0e8480800000000000000
+      internalID: -8895160625698335518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 512
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769b560e3a4fe4a10800000000000000
+      internalID: 1895721477851167079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff51d4e2a7de2a80800000000000000
+      internalID: -8489611152923205637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 256
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1624a7e5d13ef50800000000000000
+      internalID: 6909398544931774953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 256
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b48edeb0d458f8d0800000000000000
+      internalID: -2812404711760689992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 256
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f942398dc5558760800000000000000
+      internalID: 7459462699067525623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 256
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfd6a08d9193af10800000000000000
+      internalID: 2279825942033915870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 256
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad1bcc4d769515d0800000000000000
+      internalID: -3092400104216519259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96fd06e20ceac7420800000000000000
+      internalID: 2629168422912581481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04a30e2c2372dcb0800000000000000
+      internalID: -4840680015882116081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_20
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2090787f1592d790800000000000000
+      internalID: -7506773666476027860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_21
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae81f19959326b230800000000000000
+      internalID: 3654147273083787498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PurchaseEffect_Texture_22
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 170
+        height: 256
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8e37405b8b693f0800000000000000
+      internalID: -894324388383168277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

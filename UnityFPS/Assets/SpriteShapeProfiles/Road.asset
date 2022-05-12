@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
+  m_Name: Road
+  m_EditorClassIdentifier: 
+  m_Angles:
+  - m_Start: -45
+    m_End: 45
+    m_Order: 4
+    m_Sprites:
+    - {fileID: -665174799967028682, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_Start: -135
+    m_End: -45
+    m_Order: 3
+    m_Sprites:
+    - {fileID: -740641034054273577, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_Start: 135
+    m_End: 225
+    m_Order: 2
+    m_Sprites:
+    - {fileID: 0}
+  - m_Start: 45
+    m_End: 135
+    m_Order: 1
+    m_Sprites:
+    - {fileID: -356248965406076843, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: 05e87b3ec6f72bb4d82a0e478f38c7d3, type: 3}
+  m_CornerSprites:
+  - m_CornerType: 0
+    m_Sprites:
+    - {fileID: -3859746561155394364, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_CornerType: 1
+    m_Sprites:
+    - {fileID: 349589569766329024, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_CornerType: 2
+    m_Sprites:
+    - {fileID: 1682383027655976609, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_CornerType: 3
+    m_Sprites:
+    - {fileID: -7523477783518230372, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_CornerType: 4
+    m_Sprites:
+    - {fileID: 1682383027655976609, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_CornerType: 5
+    m_Sprites:
+    - {fileID: 1682383027655976609, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  - m_CornerType: 6
+    m_Sprites:
+    - {fileID: 0}
+  - m_CornerType: 7
+    m_Sprites:
+    - {fileID: 1682383027655976609, guid: 532f8b872c115b945bcc16759832ad47, type: 3}
+  m_FillOffset: 0
+  m_UseSpriteBorders: 1

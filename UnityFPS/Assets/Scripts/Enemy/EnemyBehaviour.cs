@@ -11,6 +11,26 @@ public class EnemyBehaviour : MonoBehaviour
 {
     static Collider2D[] s_ColliderCache = new Collider2D[16];
 
+    public string bloodName;
+    public Color hitColor;
+    public CapsuleCollider2D capsuleCollider;
+    public Transform shootingPos;
+    private BulletPool m_bulletPool;
+    public float shootSpeed = 400f;
+    public Bullet projectilePrefab;
+   
+
+    protected Coroutine m_FlickeringCoroutine;
+    public List<Color> m_OriginalColor;
+
+    public SpriteRenderer[] sprites;
+
+    public float flickeringDuration;
+   
+    public Transform enemyTransform;
+    private readonly Vector3 localScale = new Vector3(-1, 1, 1);
+
+    public bool filp;
     public Transform target
     {
         get { return m_Target; }
@@ -20,8 +40,11 @@ public class EnemyBehaviour : MonoBehaviour
     public float speed;
     public float gravity = 10.0f;
 
+    [Header("FindTarget")]
     public float viewDirection = 0.0f;
     public float viewDistance;
+
+
 
     [Range(0.0f,360f)]
     public float viewFov=20f;
@@ -38,13 +61,20 @@ public class EnemyBehaviour : MonoBehaviour
     protected SpriteRenderer m_SpriteRenderer;
     protected CharacterController m_CharacterController;
     protected Collider2D m_Collider;
-    protected Animator m_Animator;
+    public Animator m_Animator;
+
+    public CoinItem coinItem;
+
+
+    public Damager meleeDamager;
+    public Damager contactDamager;
 
     protected Transform m_Target;
 
     protected Vector2 m_SpriteForward;
 
     protected Vector2 m_moveVector;
+    protected Vector3 m_TargetShootPosition;
 
     protected float m_TimeSinceLastTargetView;
 
@@ -64,19 +94,29 @@ public class EnemyBehaviour : MonoBehaviour
     {
         m_CharacterController = GetComponent<CharacterController>();
         m_Collider = GetComponent<Collider2D>();
-        m_Animator = GetComponent<Animator>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+      
+        m_SpriteForward = filp ? Vector2.left : Vector2.right;
 
-        m_SpriteForward = spriteFaceLeft ? Vector2.left : Vector2.right;
-        if (m_SpriteRenderer.flipX)
+        if (filp)
         {
-            m_SpriteForward = -m_SpriteForward;
+            enemyTransform.localScale = localScale;
+            //m_SpriteForward = -m_SpriteForward;
         }
 
+        if (projectilePrefab!=null)
+        {
+            m_bulletPool = BulletPool.GetObjectPool(projectilePrefab.gameObject, 8);
+        }
 
-        
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (var item in sprites)
+        {
+            m_OriginalColor.Add(item.color);
+        }
+
     }
-
     private void OnEnable()
     {
         m_Collider.enabled = true;
@@ -99,22 +139,51 @@ public class EnemyBehaviour : MonoBehaviour
         m_Filter.layerMask = m_CharacterController.groundedLayerMask;
         m_Filter.useLayerMask = true;
         m_Filter.useTriggers = false;
+
+        if (meleeDamager!=null)
+        {
+            meleeDamager.DisableDamage();
+        }
+        
     }
 
     private void FixedUpdate()
     {    
-        m_moveVector.y = Mathf.Max(m_moveVector.y - gravity * Time.deltaTime, -gravity);
+        //m_moveVector.y = Mathf.Max(m_moveVector.y - gravity * Time.deltaTime, -gravity);
 
         m_CharacterController.Move(m_moveVector * Time.deltaTime);
 
+        m_CharacterController.CheckCapsuleEndCollisions();
+
         UpdateTimers();
+
+        m_Animator.SetBool(m_HashGroundedPara, m_CharacterController.IsGrounded);
+
+        if (m_CharacterController.IsGrounded)
+        {
+            m_CharacterController.rd.gravityScale=0.1f;
+        }
+        else
+        {
+            m_CharacterController.rd.gravityScale = 2f;
+        }     
+
+    }
+
+    public void GroundedVerticalMovement()
+    {
+        m_moveVector.y = Mathf.Max(m_moveVector.y - gravity * Time.deltaTime, -gravity);
+    }
+
+    public void UpdateJump()
+    {
+        m_moveVector.y -= 40 * Time.deltaTime;
     }
 
     public bool CheckForObstacle(float forwardDistance)
     {
         if (Physics2D.CircleCast(m_Collider.bounds.center,m_Collider.bounds.extents.y - 0.2f,m_SpriteForward,forwardDistance/2,m_Filter.layerMask.value))
-        {
-            
+        {          
             return true;
         }
 
@@ -136,12 +205,9 @@ public class EnemyBehaviour : MonoBehaviour
             m_TimeSinceLastTargetView -= Time.deltaTime;
         }
     }
-
     public void SetHorizontalSpeed(float horizontalSpeed)
     {
         m_moveVector.x = horizontalSpeed * m_SpriteForward.x;
-
-
     }
 
     public void UpdateFacing()
@@ -160,20 +226,36 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    public void RemeberTargetPos()
+    {
+        if (m_Target == null)
+        {
+            return;
+        }
+
+        m_TargetShootPosition = m_Target.transform.position;
+        
+    }
     public void SetFacingData(int facing)
     {
         if (facing == -1)
         {
-            m_SpriteRenderer.flipX = !spriteFaceLeft;
-            m_SpriteForward = spriteFaceLeft ? Vector2.right : Vector2.left;
+            //             m_SpriteRenderer.flipX = !spriteFaceLeft;
+            //             m_SpriteForward = spriteFaceLeft ? Vector2.right : Vector2.left;
+
+            filp = false;
+            enemyTransform.localScale = localScale;
+            m_SpriteForward = Vector2.left;
         }
         else if (facing == 1)
         {
-            m_SpriteRenderer.flipX = spriteFaceLeft;
-            m_SpriteForward = spriteFaceLeft ? Vector2.left : Vector2.right;
+            //m_SpriteRenderer.flipX = spriteFaceLeft;
+            //m_SpriteForward = spriteFaceLeft ? Vector2.left : Vector2.right;
+            filp = true;
+            enemyTransform.localScale = Vector3.one;
+            m_SpriteForward = Vector2.right;
         }
     }
-
     public void ScanForPlayer()
     {
         Vector3 dir = Character.PlayerCharacter.transform.position - transform.position;
@@ -208,18 +290,21 @@ public class EnemyBehaviour : MonoBehaviour
 
         Vector3 toTarget = m_Target.position - transform.position;
 
+        
+
         if (Vector2.Dot(toTarget, m_SpriteForward) < 0)
-        {           
+        {
+           
             SetFacingData(Mathf.RoundToInt(-m_SpriteForward.x));
+            //SetFacingData(Mathf.RoundToInt(-1));
+
         }
     }
-
     public void ForgetTarget()
     {
         m_Animator.SetTrigger(m_HashTargetLostPara);
         m_Target = null;
     }
-
     public void ChekTargetStillVisible()
     {
         if (m_Target == null )
@@ -227,34 +312,33 @@ public class EnemyBehaviour : MonoBehaviour
             return;
         }
 
-
         Vector3 toTarget = m_Target.position - transform.position;
 
         if (toTarget.sqrMagnitude < viewDistance * viewDistance)
         {
-            Vector3 testForward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * m_SpriteForward;
-            //if (m_SpriteRenderer.flipX)
-            //{
-            //    testForward.x = -testForward.x;
-            //}
+            Vector3 testForward = Quaternion.Euler(0, 0, filp ? -viewDirection : viewDirection) * m_SpriteForward;
+   
+            if (filp)
+            {
+                testForward.x = -testForward.x;
+            }
 
             float angle = Vector3.Angle(testForward, toTarget);
     
             if (angle <= viewFov * 0.5f)
-            {
-                
-                m_TimeSinceLastTargetView = timeBeforeTargetLost;
-                
+            {             
+                m_TimeSinceLastTargetView = timeBeforeTargetLost;              
             }
 
         }
 
+        //ForgetTarget();
+
         if (m_TimeSinceLastTargetView <= 0.0f)
         {
-           
+
             ForgetTarget();
         }
-
     }
 
     public void CheckMeleeAttack()
@@ -263,12 +347,130 @@ public class EnemyBehaviour : MonoBehaviour
         {
             return;
         }
-
         if ((m_Target.transform.position - transform.position).sqrMagnitude < (meleeRange * meleeRange))
         {
             m_Animator.SetTrigger(m_HashMeleeAttackPara);         
+        }      
+    }
+
+    public void Hit(Damager damager, Damabeable damageable)
+    {
+        if (damageable.CurrentHealth <= 0)
+        {
+            return;
         }
+
+        if (m_FlickeringCoroutine != null)
+        {
+            StopCoroutine(m_FlickeringCoroutine);
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i].color = m_OriginalColor[i];
+            }
+        }
+
+        m_FlickeringCoroutine = StartCoroutine(Flicker(damageable));
+    }
+
+    public void Die(Damager damager, Damabeable damabeable)
+    {
+        var footPosition = capsuleCollider.size.y * 0.3f;
+        //Vector3 moveforward = new Vector3(1,0,0);
+        var newPosition = transform.position + new Vector3(0, footPosition, 0);
+
+        bool flip = damabeable.GetDamageDirection().x > 0 ? false : true;
+
+        VFXController.Instance.Trigger(bloodName, newPosition, 0, flip, null, null);
+        this.gameObject.SetActive(false);
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = m_OriginalColor[i];
+        }
+
+        if (coinItem!=null)
+        {
+            coinItem.SpawnItem(transform.position);
+        }
+        
+    }
+
+    public void Shooting()
+    {
+        var footPosition = capsuleCollider.size.y * 0.3f;
+        //Vector3 moveforward = new Vector3(1,0,0);
+        var newPosition = transform.position + new Vector3(0, footPosition, 0);
+
+        BulletObject bulletObject = m_bulletPool.Pop(shootingPos.transform.position);
+        Vector3 direction = (m_TargetShootPosition - shootingPos.transform.position).normalized;
+        bulletObject.rigidbody2D.AddForce(direction * shootSpeed);
+        //bulletObject.spriteRenderer.flipX = filp ^ bulletObject.buller.spriteOriginallyFacesLeft;
        
+        //VFXController.Instance.Trigger("PowerupGlow4_01", shootingPos.position, 0, false, null, null);
+    }
+
+    protected IEnumerator Flicker(Damabeable damageable)
+    {
+        float timer = 0f;
+        float sinceLastChange = 0.0f;
+
+        Color[] transparent = new Color[m_OriginalColor.Count];
+        for (int i = 0; i < m_OriginalColor.Count; i++)
+        {
+            //transparent[i] = m_OriginalColor[i];
+            transparent[i] = hitColor;
+            //transparent[i].a = 0.6f;
+        }
+
+        int state = 1;
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = transparent[i];
+        }
+
+        while (timer < damageable.invulnerabilityDuration)
+        {
+            yield return null;
+            timer += Time.deltaTime;
+            sinceLastChange += Time.deltaTime;
+            if (sinceLastChange > flickeringDuration)
+            {
+                sinceLastChange -= flickeringDuration;
+                state = 1 - state;
+                for (int i = 0; i < sprites.Length; i++)
+                {
+                    sprites[i].color = state == 1 ? transparent[i] : m_OriginalColor[i];
+                }
+            }
+        }
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = m_OriginalColor[i];
+        }
+    }
+
+    public void ResetSpriteColor()
+    {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = m_OriginalColor[i];
+        }
+    }
+ 
+    public void SetMoveVector(Vector2 newMoveVector)
+    {
+        m_moveVector = newMoveVector;
+    }
+
+    public void EndAttack()
+    {
+        if (meleeDamager != null )
+        {
+            meleeDamager.gameObject.SetActive(false);
+            meleeDamager.DisableDamage();
+        }
     }
 
 #if UNITY_EDITOR
@@ -278,7 +480,12 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 forward = spriteFaceLeft ? Vector2.left : Vector2.right;
         forward = Quaternion.Euler(0, 0, spriteFaceLeft ? -viewDirection : viewDirection) * forward;
 
-        if (GetComponent<SpriteRenderer>().flipX)
+        //         if (GetComponent<SpriteRenderer>().flipX)
+        //         {
+        //             forward.x = -forward.x;
+        //         }
+
+        if (filp)
         {
             forward.x = -forward.x;
         }

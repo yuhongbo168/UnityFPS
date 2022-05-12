@@ -1,0 +1,634 @@
+fileFormatVersion: 2
+guid: 6268ce6f85699ef44b2812d46ee21d0c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -501191867827505593
+    second: W01_Blockades_F2D_Fill_01_0
+  - first:
+      213: 2613084735823806420
+    second: W01_Blockades_F2D_Fill_01_1
+  - first:
+      213: -3300198188667003048
+    second: W01_Blockades_F2D_Fill_01_2
+  - first:
+      213: 7372482285603627392
+    second: W01_Blockades_F2D_Fill_01_3
+  - first:
+      213: -4798984038289549040
+    second: W01_Blockades_F2D_Fill_01_4
+  - first:
+      213: 657079291302791302
+    second: W01_Blockades_F2D_Fill_01_5
+  - first:
+      213: -5361657722979826437
+    second: W01_Blockades_F2D_Fill_01_6
+  - first:
+      213: 3426809771607504977
+    second: W01_Blockades_F2D_Fill_01_7
+  - first:
+      213: 7214332212091034964
+    second: W01_Blockades_F2D_Fill_01_8
+  - first:
+      213: -5342860254820823032
+    second: W01_Blockades_F2D_Fill_01_9
+  - first:
+      213: 37224417653806121
+    second: W01_Blockades_F2D_Fill_01_10
+  - first:
+      213: -5935643396498797868
+    second: W01_Blockades_F2D_Fill_01_11
+  - first:
+      213: 4028861560142150545
+    second: W01_Blockades_F2D_Fill_01_12
+  - first:
+      213: 7190126973097622265
+    second: W01_Blockades_F2D_Fill_01_13
+  - first:
+      213: 2824816000327645534
+    second: W01_Blockades_F2D_Fill_01_14
+  - first:
+      213: -4944968545629997926
+    second: W01_Blockades_F2D_Fill_01_15
+  - first:
+      213: 5654258596410040474
+    second: W01_Blockades_F2D_Fill_01_16
+  - first:
+      213: -1032696776226398154
+    second: W01_Blockades_F2D_Fill_01_17
+  - first:
+      213: 4173809040649380138
+    second: W01_Blockades_F2D_Fill_01_18
+  - first:
+      213: -3302662830687102399
+    second: W01_Blockades_F2D_Fill_01_19
+  - first:
+      213: 1271030817655804573
+    second: W01_Blockades_F2D_Fill_01_20
+  - first:
+      213: -8906832397407617313
+    second: W01_Blockades_F2D_Fill_01_21
+  - first:
+      213: -4156892105412079229
+    second: W01_Blockades_F2D_Fill_01_22
+  - first:
+      213: 6964066495176323240
+    second: W01_Blockades_F2D_Fill_01_23
+  - first:
+      213: 8000125833871746490
+    second: W01_Blockades_F2D_Fill_01_24
+  - first:
+      213: -4405300844339888682
+    second: W01_Blockades_F2D_Fill_01_25
+  - first:
+      213: -4505678948422480004
+    second: W01_Blockades_F2D_Fill_01_26
+  - first:
+      213: 3797876101994067547
+    second: W01_Blockades_F2D_Fill_01_27
+  - first:
+      213: 6252601158800856093
+    second: W01_Blockades_F2D_Fill_01_28
+  - first:
+      213: 5595644811040942865
+    second: W01_Blockades_F2D_Fill_01_29
+  - first:
+      213: -8454047875318597203
+    second: W01_Blockades_F2D_Fill_01_30
+  - first:
+      213: -1715451322160414681
+    second: W01_Blockades_F2D_Fill_01_31
+  - first:
+      213: 1086461857008460891
+    second: W01_Blockades_F2D_Fill_01_32
+  - first:
+      213: -5390046631250127292
+    second: W01_Blockades_F2D_Fill_01_33
+  - first:
+      213: 2116068552876214633
+    second: W01_Blockades_F2D_Fill_01_34
+  - first:
+      213: -6061871428312991591
+    second: W01_Blockades_F2D_Fill_01_35
+  - first:
+      213: -7323758340472660180
+    second: W01_Blockades_F2D_Fill_01_36
+  - first:
+      213: -4722087783043050036
+    second: W01_Blockades_F2D_Fill_01_37
+  - first:
+      213: 6484899327056766344
+    second: W01_Blockades_F2D_Fill_01_38
+  - first:
+      213: -2389771307278621319
+    second: W01_Blockades_F2D_Fill_01_39
+  - first:
+      213: -634011073169425912
+    second: W01_Blockades_F2D_Fill_01_40
+  - first:
+      213: 2986260882365554950
+    second: W01_Blockades_F2D_Fill_01_41
+  - first:
+      213: -7571986663052168583
+    second: W01_Blockades_F2D_Fill_01_42
+  - first:
+      213: 3788085952754129367
+    second: W01_Blockades_F2D_Fill_01_43
+  - first:
+      213: 7135916779516890870
+    second: W01_Blockades_F2D_Fill_01_44
+  - first:
+      213: -4580184572538781008
+    second: W01_Blockades_F2D_Fill_01_45
+  - first:
+      213: 5583460233494280918
+    second: W01_Blockades_F2D_Fill_01_46
+  - first:
+      213: 6991917378348958498
+    second: W01_Blockades_F2D_Fill_01_47
+  - first:
+      213: 6184187437484318269
+    second: W01_Blockades_F2D_Fill_01_48
+  - first:
+      213: -7147681590248703674
+    second: W01_Blockades_F2D_Fill_01_49
+  - first:
+      213: -5427108666704379203
+    second: W01_Blockades_F2D_Fill_01_50
+  - first:
+      213: -186855789085997826
+    second: W01_Blockades_F2D_Fill_01_51
+  - first:
+      213: -3433721234252142443
+    second: W01_Blockades_F2D_Fill_01_52
+  - first:
+      213: -8591890610890242119
+    second: W01_Blockades_F2D_Fill_01_53
+  - first:
+      213: -4405393277977414769
+    second: W01_Blockades_F2D_Fill_01_54
+  - first:
+      213: -1807584544947883951
+    second: W01_Blockades_F2D_Fill_01_55
+  - first:
+      213: 9180994220562945569
+    second: W01_Blockades_F2D_Fill_01_56
+  - first:
+      213: -1644645159759424089
+    second: W01_Blockades_F2D_Fill_01_57
+  - first:
+      213: 8354729443192170439
+    second: W01_Blockades_F2D_Fill_01_58
+  - first:
+      213: -46944138543594316
+    second: W01_Blockades_F2D_Fill_01_59
+  - first:
+      213: 5827702388641790909
+    second: W01_Blockades_F2D_Fill_01_60
+  - first:
+      213: 1696334504588669651
+    second: W01_Blockades_F2D_Fill_01_61
+  - first:
+      213: 8540244574142398941
+    second: W01_Blockades_F2D_Fill_01_62
+  - first:
+      213: 3920956684816328343
+    second: W01_Blockades_F2D_Fill_01_63
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746b3d1d6a86b09f0800000000000000
+      internalID: -501191867827505593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dff5c6f8ba834420800000000000000
+      internalID: 2613084735823806420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f9d1c8b375332d0800000000000000
+      internalID: -3300198188667003048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081a342e391505660800000000000000
+      internalID: 7372482285603627392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0195bfa7175966db0800000000000000
+      internalID: -4798984038289549040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6884e53522a6e1900800000000000000
+      internalID: 657079291302791302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4ce8e45b09795b0800000000000000
+      internalID: -5361657722979826437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158b08dc4597e8f20800000000000000
+      internalID: 3426809771607504977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d18597ce47e1460800000000000000
+      internalID: 7214332212091034964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8001adae7e85ad5b0800000000000000
+      internalID: -5342860254820823032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924d93f196f348000800000000000000
+      internalID: 37224417653806121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dacb4e77cb50ada0800000000000000
+      internalID: -5935643396498797868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19bbf7d3e3469e730800000000000000
+      internalID: 4028861560142150545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa3079136678c360800000000000000
+      internalID: 7190126973097622265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e597e5f8f23c33720800000000000000
+      internalID: 2824816000327645534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: W01_Blockades_F2D_Fill_01_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a947e3cae41ff5bb0800000000000000
+      internalID: -4944968545629997926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

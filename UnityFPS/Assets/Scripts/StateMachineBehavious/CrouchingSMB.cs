@@ -9,5 +9,12 @@ public class CrouchingSMB : ScenceLinkSMB<Character>
     {
         m_TMonoBehavious.UpdateFacing();
         m_TMonoBehavious.CheckForCrouching();
+        m_TMonoBehavious.CheckForGrounded();
+        m_TMonoBehavious.GroundedHorizonalMovement(false);
+        if (m_TMonoBehavious.CheckForFallInput())
+        {
+            m_TMonoBehavious.MakePlatformFallthrough();
+        }
+        m_TMonoBehavious.GroundedVerticalMovement();
     }
 }
