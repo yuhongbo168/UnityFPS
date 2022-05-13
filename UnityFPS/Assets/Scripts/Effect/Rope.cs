@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class Rope : MonoBehaviour
 {
     public GameObject endObject;
@@ -15,15 +19,18 @@ public class Rope : MonoBehaviour
 
     public List<GameObject> Nodes = new List<GameObject>();
 
-    LineRenderer m_LineRenderer;
+    public LineRenderer m_LineRenderer;
 
-
+    public LineRenderer GetLineRender
+    {
+        get { return m_LineRenderer; }
+    }
 
     private void Awake()
     {
-       /* hook = GetComponent<Rigidbody2D>();*/
-        m_LineRenderer = GetComponent<LineRenderer>();
-      
+        /* hook = GetComponent<Rigidbody2D>();*/
+        GetReferences();
+
 
        // Nodes.Add(gameObject);
     }
@@ -34,8 +41,6 @@ public class Rope : MonoBehaviour
 
        // CreateRope();
     }
-
-
 
     private void Update()
     {      
@@ -78,6 +83,10 @@ public class Rope : MonoBehaviour
         
     }
 
+    public void GetReferences()
+    {
+        m_LineRenderer = GetComponent<LineRenderer>();
+    }
  
     public void SubtractLinks()
     {
@@ -85,11 +94,9 @@ public class Rope : MonoBehaviour
 //         Nodes.Remove(node);
 //         //CreateRope();
     }
-    void CreateLineRender()
+   public void CreateLineRender()
     {
-        m_LineRenderer.positionCount = Nodes.Count;
-
-       
+        m_LineRenderer.positionCount = Nodes.Count;       
 
         for (int i = 0; i < Nodes.Count; i++)
         {
@@ -112,3 +119,49 @@ public class Rope : MonoBehaviour
 
 
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(Rope))]
+public class RopeEditor:Editor
+{
+
+    protected Rope m_Rope;
+    protected List<GameObject> m_Nodes;
+    LineRenderer m_LineRenderer;
+    private void OnEnable()
+    {
+        m_Rope = target as Rope;
+        m_Rope.GetReferences();
+
+        m_Nodes = m_Rope.Nodes;
+        m_LineRenderer = m_Rope.GetLineRender;
+
+
+        m_Rope.m_LineRenderer.positionCount = m_Nodes.Count;
+
+        for (int i = 0; i < m_Nodes.Count; i++)
+        {
+            m_Rope.m_LineRenderer.SetPosition(i, m_Nodes[i].transform.position);
+        }
+
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+
+        EditorGUI.BeginChangeCheck();
+        {
+            m_Rope.CreateLineRender();
+        }
+
+//         if (EditorGUI.EndChangeCheck())
+//         {
+//             m_Rope.CreateLineRender();
+//             EditorUtility.SetDirty(target);
+//         }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
+#endif
