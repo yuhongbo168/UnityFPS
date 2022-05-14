@@ -118,7 +118,15 @@ public class Character : MonoBehaviour
     bool m_UseForce;
     float m_ForceRopeTimer;
     Transform m_RopeNodes;
-   
+
+
+    protected ChainSide m_ChainSide;
+    protected bool nextChian = true;
+
+    public ChainSide chainside
+    {
+        set;get;
+    }
 
     //Pushable
     private Pushable m_Pushable;
@@ -145,6 +153,7 @@ public class Character : MonoBehaviour
     protected readonly int m_HashGrabPapa = Animator.StringToHash("Grab");
     protected readonly int m_HashGrabUPPapa = Animator.StringToHash("GrabUP");
     protected readonly int m_HashGrabDownPapa = Animator.StringToHash("GrabDown");
+    protected readonly int m_HashOnChainDownPapa = Animator.StringToHash("OnChain");
 
     protected const float k_GroundedStickingVelocityMultiplier = 3f;
 
@@ -584,7 +593,7 @@ public class Character : MonoBehaviour
 
     public void SetVerticalMovement(float value)
     {
-        Debug.Log("setvertical");
+       
         m_MoveVector.y = value;
     }
 
@@ -874,7 +883,7 @@ public class Character : MonoBehaviour
 
     public bool CheckSecounJump()
     {
-        int count = Physics2D.Raycast(transform.position, flipX.x < 0 ? Vector2.left * 0.2f : Vector2.right * 0.2f, PC.ContactFilter, hit, 1.5f);
+        int count = Physics2D.Raycast(transform.position, flipX.x < 0 ? Vector2.left * 0.2f : Vector2.right * 0.2f, PC.ContactFilter, hit, .5f);
         if (hit[0].collider!=null&&count > 0&&!PC.IsGrounded)
         {
             //jumpCount=0;
@@ -1177,6 +1186,46 @@ public class Character : MonoBehaviour
         {
             m_Animator.SetTrigger(m_HashGrabDownPapa);
         }
+    }
+
+    public void CheckStartChain(int index)
+    {
+        m_Animator.SetBool(m_HashOnChainDownPapa, true);
+
+        
+        //int newIndex;
+
+
+        if (chainside!=null)
+        {
+
+            if (nextChian)
+            {
+               
+
+                float timer = Time.time + 0.2f;
+                PC.rd.gravityScale = 0f;
+                Debug.Log("gameOjbect " + chainside + " index " + index);
+
+                transform.position = chainside.nodes[index].transform.position - new Vector3(0, 0.7f, 0);
+
+
+                nextChian = false;
+            }
+                 
+          transform.position = Vector3.MoveTowards(transform.position, chainside.nodes[chainside.nodes.Count-1].transform.position - new Vector3(0, 0.7f, 0), Time.deltaTime);
+
+//             for (int i = index; i < chainside.nodes.Count; i++)
+//             {
+//                               
+//                 Debug.Log("chainRun");
+//                 
+//                 //transform.position = chainside.nodes[i].transform.position - new Vector3(0, 0.7f, 0);
+//                            
+//             }
+
+        }
+
     }
 
 }

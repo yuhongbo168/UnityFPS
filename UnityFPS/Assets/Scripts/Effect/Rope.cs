@@ -37,15 +37,16 @@ public class Rope : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // lastNode = transform.gameObject;
+        // lastNode = transform.gameObject;
 
-       // CreateRope();
+        // CreateRope();
+        CreateLineRender();
     }
 
     private void Update()
     {      
 
-       CreateLineRender();
+       
 
     }
 
@@ -151,15 +152,14 @@ public class RopeEditor:Editor
         serializedObject.Update();
 
         EditorGUI.BeginChangeCheck();
-        {
-            m_Rope.CreateLineRender();
-        }
 
-//         if (EditorGUI.EndChangeCheck())
-//         {
-//             m_Rope.CreateLineRender();
-//             EditorUtility.SetDirty(target);
-//         }
+        m_Rope.CreateLineRender();
+
+
+        if (EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(m_Rope, "Modify m_Rope");
+        }
 
         serializedObject.ApplyModifiedProperties();
     }
