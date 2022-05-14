@@ -132,7 +132,6 @@ public class Bullet : MonoBehaviour
                                       
                     damabeable.TakeDamage(damager, damabeable);
 
-                    Debug.Log(other[i].name +  damabeable.CurrentHealth);
                 }
                 
             }

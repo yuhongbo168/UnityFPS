@@ -41,6 +41,7 @@ public class AirborneSMB : ScenceLinkSMB<Character>
             // Debug.Log("footDownEffect");
             m_TMonoBehavious.canLunchjumpUpEffect = true;
         }
-      
+
+        m_TMonoBehavious.CheckStopChian();
     }
 }

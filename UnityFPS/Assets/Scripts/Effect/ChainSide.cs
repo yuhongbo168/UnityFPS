@@ -90,12 +90,45 @@ public class ChainCollision : MonoBehaviour
 
                 int index = chainParent.nodes.IndexOf(this.gameObject);
 
+                if (index+2> chainParent.nodes.Count)
+                {
+                    return;
+                }
+                // cheracter.PC.capsuleCollider.enabled = false;
+                if (cheracter.chainside != null)
+                {
+                    for (int i = 0; i < cheracter.chainside.nodes.Count; i++)
+                    {
+                        cheracter.chainside.nodes[i].GetComponent<CircleCollider2D>().enabled = true;
+                    }
+                }
+
+
                 cheracter.chainside = chainParent;
+
                 cheracter.CheckStartChain(index);
+
+                cheracter.SlidChian = true;
             }
             
         }
     }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var chainParent = transform.parent.GetComponent<ChainSide>();
+
+        if (chainParent!=null)
+        {
+            for (int i = 0; i < chainParent.nodes.Count; i++)
+            {
+                chainParent.nodes[i].GetComponent<CircleCollider2D>().enabled = true;
+            }
+        }
+     
+    }
+
 }
 
 //#if UNITY_EDITOR

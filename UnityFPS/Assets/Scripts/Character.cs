@@ -12,13 +12,7 @@ public class Character : MonoBehaviour
 
     public Transform resetPos;
 
-    void ResetHandPosition()
-    {
-//         var newHand = hand.GetComponent<Animator>();
-//         newHand.StopPlayback();
 
-        hand.transform.position = resetPos.position;
-    }
     protected static Character s_PlayerCharacter;
     public static Character PlayerCharacter { get { return s_PlayerCharacter; } }
 
@@ -120,8 +114,20 @@ public class Character : MonoBehaviour
     Transform m_RopeNodes;
 
 
+    [Header("OnChain")]
+    public float slidSpeed = 5f;
     protected ChainSide m_ChainSide;
-    protected bool nextChian = true;
+    protected bool m_OnChainJump;
+    public bool OnChainJump
+    {
+        get { return m_OnChainJump; }
+    }
+    
+    public bool SlidChian
+    {
+        set;get;
+    }
+
 
     public ChainSide chainside
     {
@@ -153,7 +159,7 @@ public class Character : MonoBehaviour
     protected readonly int m_HashGrabPapa = Animator.StringToHash("Grab");
     protected readonly int m_HashGrabUPPapa = Animator.StringToHash("GrabUP");
     protected readonly int m_HashGrabDownPapa = Animator.StringToHash("GrabDown");
-    protected readonly int m_HashOnChainDownPapa = Animator.StringToHash("OnChain");
+    protected readonly int m_HashSlidAtChainPapa = Animator.StringToHash("OnChain");
 
     protected const float k_GroundedStickingVelocityMultiplier = 3f;
 
@@ -252,7 +258,10 @@ public class Character : MonoBehaviour
             }
         }
 
-       
+        if (SlidChian)
+        {
+            RunAtChain();
+        }
 
     
 
@@ -374,11 +383,13 @@ public class Character : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
+
+        m_OnChainJump = context.started;
+
         if (context.started)
         {
             m_Jump = true;
-
-            
+          
             if (m_RopeGameObject && m_Jump)
             {
                 
@@ -593,8 +604,9 @@ public class Character : MonoBehaviour
 
     public void SetVerticalMovement(float value)
     {
-       
+
         m_MoveVector.y = value;
+
     }
 
     public void SetMoveVector(Vector2 newMoveVector)
@@ -696,6 +708,25 @@ public class Character : MonoBehaviour
             characterTransform.localScale = Vector3.one;
         }
 
+    }
+
+    public void UpdateFacingSlid()
+    {
+        if (chainside!=null)
+        {
+            bool left = transform.position.x - chainside.chainEnd.position.x > 0 ? true:false;
+            if (left)
+            {
+                flipX = localScale;
+                characterTransform.localScale = localScale;
+            }
+            else
+            {
+                flipX = Vector3.one;
+                characterTransform.localScale = Vector3.one;
+            }
+        
+        }
     }
 
     public void EnableMelleAttack()
@@ -913,7 +944,7 @@ public class Character : MonoBehaviour
                          
     }
 
-    private void SetAirborneHorizonalMovement(float value)
+    public void SetAirborneHorizonalMovement(float value)
     {
         m_MoveVector.x = value;
     }
@@ -1190,42 +1221,63 @@ public class Character : MonoBehaviour
 
     public void CheckStartChain(int index)
     {
-        m_Animator.SetBool(m_HashOnChainDownPapa, true);
+        m_Animator.SetBool(m_HashSlidAtChainPapa, true);
+     
+        if (chainside != null)
+        {
+           // PC.rd.gravityScale = 0f;
+          
+            for (int i = 0; i < chainside.nodes.Count; i++)
+            {
+                chainside.nodes[i].GetComponent<CircleCollider2D>().enabled = false;
+            }
+          
+             transform.position = chainside.nodes[index + 1].transform.position - new Vector3(0, 0.7f, 0);
+
+            //if (index+1> chainside.nodes.Count)
+            //{
+            //    transform.position = chainside.nodes[index + 1].transform.position - new Vector3(0, 0.7f, 0);
+            //}
+            //else
+            //{
+            //    transform.position = chainside.nodes[index].transform.position - new Vector3(0, 0.7f, 0);
+            //}
+
+            //transform.position = Vector3.MoveTowards(transform.position, chainside.nodes[chainside.nodes.Count - 1].transform.position - new Vector3(0, 0.7f, 0), Time.deltaTime);
+        }
+
+    }
+
+    private void RunAtChain()
+    {
+       
+        if (Vector3.Distance(transform.position, chainside.chainEnd.position)>0.9f)
+        {
+            PC.rd.gravityScale = 0f;
+            transform.position = Vector3.MoveTowards(transform.position, chainside.chainEnd.position - new Vector3(0, 0.7f, 0), slidSpeed * Time.deltaTime);
+            //Debug.Log(Vector3.Distance(transform.position, chainside.chainEnd.position));
+        }
+        else
+        {
+            m_Animator.SetBool(m_HashSlidAtChainPapa, false);
+            SlidChian = false;
+            PC.rd.gravityScale = 1f;
+        }
 
         
-        //int newIndex;
+    }
 
+    public void CheckStopChian()
+    {
 
         if (chainside!=null)
         {
-
-            if (nextChian)
+            for (int i = 0; i < chainside.nodes.Count; i++)
             {
-               
-
-                float timer = Time.time + 0.2f;
-                PC.rd.gravityScale = 0f;
-                Debug.Log("gameOjbect " + chainside + " index " + index);
-
-                transform.position = chainside.nodes[index].transform.position - new Vector3(0, 0.7f, 0);
-
-
-                nextChian = false;
+                chainside.nodes[i].GetComponent<CircleCollider2D>().enabled = true;
             }
-                 
-          transform.position = Vector3.MoveTowards(transform.position, chainside.nodes[chainside.nodes.Count-1].transform.position - new Vector3(0, 0.7f, 0), Time.deltaTime);
-
-//             for (int i = index; i < chainside.nodes.Count; i++)
-//             {
-//                               
-//                 Debug.Log("chainRun");
-//                 
-//                 //transform.position = chainside.nodes[i].transform.position - new Vector3(0, 0.7f, 0);
-//                            
-//             }
-
         }
-
+        
     }
 
 }

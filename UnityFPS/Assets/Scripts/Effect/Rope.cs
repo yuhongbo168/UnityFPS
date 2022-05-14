@@ -44,9 +44,9 @@ public class Rope : MonoBehaviour
     }
 
     private void Update()
-    {      
+    {
 
-       
+        CreateLineRender();
 
     }
 
