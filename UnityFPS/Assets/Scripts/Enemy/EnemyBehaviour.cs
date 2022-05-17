@@ -159,14 +159,14 @@ public class EnemyBehaviour : MonoBehaviour
 
         m_Animator.SetBool(m_HashGroundedPara, m_CharacterController.IsGrounded);
 
-        if (m_CharacterController.IsGrounded)
-        {
-            m_CharacterController.rd.gravityScale=0.1f;
-        }
-        else
-        {
-            m_CharacterController.rd.gravityScale = 2f;
-        }     
+//         if (m_CharacterController.IsGrounded)
+//         {
+//             m_CharacterController.rd.gravityScale=0.1f;
+//         }
+//         else
+//         {
+//             m_CharacterController.rd.gravityScale = 2f;
+//         }     
 
     }
 
@@ -182,7 +182,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public bool CheckForObstacle(float forwardDistance)
     {
-        if (Physics2D.CircleCast(m_Collider.bounds.center,m_Collider.bounds.extents.y - 0.2f,m_SpriteForward,forwardDistance/2,m_Filter.layerMask.value))
+        if (Physics2D.CircleCast(m_Collider.bounds.center,m_Collider.bounds.extents.y - 0.5f,m_SpriteForward,1f,m_Filter.layerMask.value))
         {          
             return true;
         }

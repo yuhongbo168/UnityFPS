@@ -25,24 +25,24 @@ public class Item : MonoBehaviour
     {
         if (isDid)
         {
-            timer -=Time.deltaTime;
-
-            if (timer<=0)
-            {
-                if (Vector3.Distance(Character.PlayerCharacter.transform.position, transform.position) < Distance)
-                {
-                    /*this.GetComponent<Rigidbody2D>().gravityScale = 0;*/
-
-                    if (Vector3.Distance(Character.PlayerCharacter.transform.position, transform.position) < Distance*2f)
-                    {
-                        transform.position = Vector2.Lerp(transform.position, Character.PlayerCharacter.transform.position, 6 * Time.deltaTime);
-                    }
-
-                    transform.position = Vector2.Lerp(transform.position, Character.PlayerCharacter.transform.position, 2 * Time.deltaTime);
-                    
-                }
-            }
-           
+//             timer -=Time.deltaTime;
+// 
+//             if (timer<=0)
+//             {
+//                 if (Vector3.Distance(Character.PlayerCharacter.transform.position, transform.position) < Distance)
+//                 {
+//                     /*this.GetComponent<Rigidbody2D>().gravityScale = 0;*/
+// 
+//                     if (Vector3.Distance(Character.PlayerCharacter.transform.position, transform.position) < Distance*2f)
+//                     {
+//                         transform.position = Vector2.Lerp(transform.position, Character.PlayerCharacter.transform.position, 6 * Time.deltaTime);
+//                     }
+// 
+//                     transform.position = Vector2.Lerp(transform.position, Character.PlayerCharacter.transform.position, 2 * Time.deltaTime);
+//                     
+//                 }
+//             }
+//            
         }
 
     }

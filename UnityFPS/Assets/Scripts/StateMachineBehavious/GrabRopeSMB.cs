@@ -16,6 +16,11 @@ public class GrabRopeSMB : ScenceLinkSMB<Character>
 
         m_TMonoBehavious.CheckGrab();
 
+        if (m_TMonoBehavious.CheckForJumpInput())
+        {
+            m_TMonoBehavious.CancelGrapRope();
+        }
+
         //m_TMonoBehavious.AirborneVerticalMovement();
         
         //m_TMonoBehavious.GrabRope();

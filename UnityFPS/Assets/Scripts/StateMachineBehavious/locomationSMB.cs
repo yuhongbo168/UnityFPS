@@ -16,12 +16,20 @@ public class locomationSMB : ScenceLinkSMB<Character>
         m_TMonoBehavious.GroundedVerticalMovement();
         m_TMonoBehavious.CheckForGrounded();
         m_TMonoBehavious.CheckForCrouching();
-     
 
-        if (m_TMonoBehavious.CheckSecounJump())
+        m_TMonoBehavious.CheckBounceJump();
+
+        if (m_TMonoBehavious.CheckForJumpInput()&& !m_TMonoBehavious.CheckForFallInput())
         {
-            m_TMonoBehavious.SetVerticalMovement(0);
+            m_TMonoBehavious.SetVerticalMovement(m_TMonoBehavious.jumpSpeed);
         }
+        
+
+
+//         if (m_TMonoBehavious.CheckSecounJump())
+//         {
+//             m_TMonoBehavious.SetVerticalMovement(0);
+//         }
 
        
         //if (m_TMonoBehavious.CheckForJumpInput())
@@ -29,6 +37,11 @@ public class locomationSMB : ScenceLinkSMB<Character>
         //    m_TMonoBehavious.SetVerticalMovement(m_TMonoBehavious.jumpSpeed);
         //}
 
+    }
+
+    public override void OnSLStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        
     }
 }
 

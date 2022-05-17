@@ -15,14 +15,17 @@ public class OnChianSMB : ScenceLinkSMB<Character>
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_TMonoBehavious.UpdateFacingSlid();
-      
-        if (m_TMonoBehavious.CheckForJumpInput())
-        {
-            Debug.Log("JUMP");
-           /* m_TMonoBehavious.SetVerticalMovement(m_TMonoBehavious.jumpSpeed);*/
-        }
+
+        m_TMonoBehavious.RunAtChain();
         m_TMonoBehavious.SetAirborneHorizonalMovement(0f);
         m_TMonoBehavious.SetVerticalMovement(0);
+
+
+        if (m_TMonoBehavious.OnChainJump)
+        {
+           m_TMonoBehavious.SlidChian = false;
+        }
+        // m_TMonoBehavious.UpdateJump();
 
     }
 

@@ -93,13 +93,22 @@ public class Character : MonoBehaviour
     private float m_ShotSpawnGap;
     private Coroutine fireCoroutine;
 
-    
+    //Jump Setting
     private bool m_Jump;
     private bool m_Crouching;
-    private bool canSecond=true;
-    public int jumpCount = 1;
-    private bool twoJump;
+    public bool secoudJump
+    {
+        set;get;
+    }    
+    public bool IsForwardWall
+    {
+        set;get;
+    }
+  
+    private bool m_SecondJump;
     private bool m_push;
+    public LayerMask wallLayer;
+    private ContactFilter2D m_ContactFilterWall;
 
 
     [Header("GrabRope")]
@@ -118,6 +127,7 @@ public class Character : MonoBehaviour
     public float slidSpeed = 5f;
     protected ChainSide m_ChainSide;
     protected bool m_OnChainJump;
+    protected int m_Index;
     public bool OnChainJump
     {
         get { return m_OnChainJump; }
@@ -152,7 +162,7 @@ public class Character : MonoBehaviour
     protected readonly int m_HashRespawnPara = Animator.StringToHash("Respawn");
     protected readonly int m_ForcedRespawnPapa = Animator.StringToHash("ForcedRespawn");
     protected readonly int m_HashShootMagicPapa = Animator.StringToHash("ShootMagic");
-    protected readonly int m_HashSecondJumpPapa = Animator.StringToHash("SecondJump");
+    protected readonly int m_HashBounceJumpPapa = Animator.StringToHash("BounceJump");
     protected readonly int m_HashPushingPapa = Animator.StringToHash("Pushing");
     protected readonly int m_HashPullPapa = Animator.StringToHash("Pull");
     protected readonly int m_HashPushReadyPapa = Animator.StringToHash("PushReady");
@@ -183,6 +193,10 @@ public class Character : MonoBehaviour
 
         m_Transform = transform;
 
+        m_ContactFilterWall.layerMask = wallLayer;
+        m_ContactFilterWall.useTriggers = false;
+        m_ContactFilterWall.useLayerMask = true;
+
         m_contactFilter2D.layerMask = ropeLayer;
         m_contactFilter2D.useLayerMask = true;
         m_contactFilter2D.useTriggers = false;
@@ -209,7 +223,7 @@ public class Character : MonoBehaviour
         meleedamager.DisableDamage();
 
         m_StartingPosition = transform.position;
- 
+
     }
 
     private void FixedUpdate()
@@ -220,22 +234,12 @@ public class Character : MonoBehaviour
         PC.Move(m_MoveVector * Time.deltaTime);
         m_Animator.SetFloat(m_HashHorizontalSpeedPara, m_MoveVector.x);
 
-//         if (m_MoveVector.x < 0)
-//         {
-//             characterTransform.localScale = localScale;
-//         }
-//         else if (m_MoveVector.x > 0)
-//         {
-//             characterTransform.localScale = Vector3.one;
-//         }
-
         if (PC.IsGrounded)
         {
-            jumpCount = 1;
             airAttack = true;
         }
 
-        CheckSecounJump();
+       // CheckBounceJump();
 
         Pushable();
         // CheckForPushing();
@@ -258,14 +262,23 @@ public class Character : MonoBehaviour
             }
         }
 
-        if (SlidChian)
+        if (PC.IsGrounded)
         {
-            RunAtChain();
+            if (chainside != null)
+            {
+                for (int i = 0; i < chainside.nodes.Count; i++)
+                {
+                    chainside.nodes[i].GetComponent<CircleCollider2D>().enabled = true;
+                }
+            }
+            chainside = null;
+
+            m_Animator.SetBool(m_HashSlidAtChainPapa, false);
         }
 
-    
+        CheckForwardCollision();
 
-     }
+    }
 
     public void Pushable()
     {
@@ -311,24 +324,6 @@ public class Character : MonoBehaviour
                     m_Animator.SetBool(m_HashPullPapa, movingLeft);
 
                     m_Animator.SetBool(m_HashPushingPapa, movingRight);
-
-
-                    //                     if (movingLeft)
-                    //                     {
-                    //                         m_Animator.SetBool(m_HashPullPapa, true);
-                    //                     }
-                    //                     else
-                    //                     {
-                    //                         m_Animator.SetBool(m_HashPullPapa, false);
-                    //                     }
-                    //                     if (movingRight)
-                    //                     {
-                    //                         m_Animator.SetBool(m_HashPushingPapa, true);
-                    //                     }
-                    //                     else
-                    //                     {
-                    //                         m_Animator.SetBool(m_HashPushingPapa, false);
-                    //                     }
 
                 }
             }
@@ -384,59 +379,38 @@ public class Character : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
 
-        m_OnChainJump = context.started;
+        // bool twoJump = false;
 
-        if (context.started)
+        if (!PC.IsGrounded&&context.started)
         {
-            m_Jump = true;
-          
-            if (m_RopeGameObject && m_Jump)
-            {
-                
-                m_HaveDetectionRope = true;
-                m_RopeGameObject = null;
-                m_Animator.SetBool(m_HashGrabPapa, false);
-                SetVerticalMovement(15);
-                jumpCount = 1;
-                twoJump = true;
-                return;
-            }
-
-            if (jumpCount >= 1&&PC.IsGrounded&&!m_MoveDownY)
-            {
-                SetVerticalMovement(jumpSpeed);
-
-                twoJump = true;
-                jumpCount--;
-
-                if (CheckSecounJump())
-                {
-                    SecondBounceJump();                
-                    return;
-                }              
-
-            }else if (twoJump && !PC.IsGrounded)
-
-            {
-                twoJump = false;
-                jumpCount--;
-
-                if (CheckSecounJump())
-                {
-                    SecondBounceJump();
-
-                    return;
-                }
-                SetVerticalMovement(35);
-               
-            }           
-
+            m_SecondJump = context.started;
         }
+
+
+        
+
+        m_Jump = context.started;
+
+//         if (context.started)
+//         {
+//             m_Jump = true;
+// 
+//         }
+
+        if (SlidChian)
+        {
+            m_OnChainJump = context.started;
+        }
+
 
 
         if (context.canceled)
         {
-            m_Jump = false;
+            m_SecondJump = false;
+            // 
+            //             m_Jump = false;
+
+               m_OnChainJump = false;
         }
         
     }
@@ -517,6 +491,7 @@ public class Character : MonoBehaviour
         bool grounded = PC.IsGrounded;
 
         m_Animator.SetBool(m_HashGroundedPara, grounded);
+        
 
         return grounded;
     }
@@ -548,8 +523,9 @@ public class Character : MonoBehaviour
                 {
                     if (airAttack)
                     {
-                        m_Animator.SetTrigger(m_HashMeleeAttackPara);
                         airAttack = false;
+                        m_Animator.SetTrigger(m_HashMeleeAttackPara);
+                        
                     }
                 }
             }        
@@ -602,10 +578,20 @@ public class Character : MonoBehaviour
         return m_Jump;
     }
 
+    public bool CheckForSeconJumpInut()
+    {
+        return m_SecondJump;
+    }
+
     public void SetVerticalMovement(float value)
     {
 
         m_MoveVector.y = value;
+
+//         if (m_Animator.GetBool(m_HashSlidAtChainPapa))
+//         {
+//             m_Animator.SetBool(m_HashSlidAtChainPapa, false);
+//         }
 
     }
 
@@ -912,36 +898,44 @@ public class Character : MonoBehaviour
         m_storePice += count;
     }
 
-    public bool CheckSecounJump()
+    protected void CheckForwardCollision()
     {
-        int count = Physics2D.Raycast(transform.position, flipX.x < 0 ? Vector2.left * 0.2f : Vector2.right * 0.2f, PC.ContactFilter, hit, .5f);
-        if (hit[0].collider!=null&&count > 0&&!PC.IsGrounded)
+        int count = Physics2D.Raycast(transform.position, flipX.x < 0 ? Vector2.left * 0.2f : Vector2.right * 0.2f, m_ContactFilterWall, hit, .5f);
+        if (count>0)
         {
-            //jumpCount=0;
-            twoJump = true;
-            airAttack = true;
-            m_Animator.SetBool(m_HashSecondJumpPapa, true);
-            return true;
-          
+            if (hit[0].collider != null && !PC.IsGrounded)
+            {
+                IsForwardWall = true;
+            }
         }
+        else
+        {
+            IsForwardWall = false;
+        }
+ 
+       
 
-        
-        m_Animator.SetBool(m_HashSecondJumpPapa, false);
-        return false;     
-        
+    }
+
+    public bool CheckBounceJump()
+    {
+        //m_SecondJump = true;
+        //airAttack = true;
+        m_Animator.SetBool(m_HashBounceJumpPapa, IsForwardWall);
+        return IsForwardWall;            
     }
     public void SecondBounceJump()
     {
 
-        if (hit[0].collider!=null&&!PC.IsGrounded)
+        if (hit[0].collider != null && !PC.IsGrounded)
         {
 
             SetVerticalMovement(secondBounceVertical);
             SetAirborneHorizonalMovement(secondBounceHorizontal * (hit[0].normal.x));
             UpdateFacing(flipX.x > 0 ? true : false);
 
-        }        
-                         
+        }
+
     }
 
     public void SetAirborneHorizonalMovement(float value)
@@ -960,6 +954,8 @@ public class Character : MonoBehaviour
 
     }
 
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -1079,8 +1075,8 @@ public class Character : MonoBehaviour
                     {
                         m_RopeGameObject = m_RopeHit[0].collider.gameObject;
                         m_Animator.SetBool(m_HashGrabPapa,true);
-                        m_HaveDetectionRope = false;
-                        jumpCount = 1;
+                       // m_HaveDetectionRope = false;
+                        //jumpCount = 1;
                         return true;
                     }
                 }
@@ -1219,9 +1215,22 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void CancelGrapRope()
+    {
+        if (m_RopeGameObject)
+        {
+            m_HaveDetectionRope = true;
+            m_RopeGameObject = null;
+            m_Animator.SetBool(m_HashGrabPapa, false);
+            SetVerticalMovement(15);
+        }
+    }
+
+
     public void CheckStartChain(int index)
     {
         m_Animator.SetBool(m_HashSlidAtChainPapa, true);
+      
      
         if (chainside != null)
         {
@@ -1231,38 +1240,39 @@ public class Character : MonoBehaviour
             {
                 chainside.nodes[i].GetComponent<CircleCollider2D>().enabled = false;
             }
-          
-             transform.position = chainside.nodes[index + 1].transform.position - new Vector3(0, 0.7f, 0);
 
-            //if (index+1> chainside.nodes.Count)
-            //{
-            //    transform.position = chainside.nodes[index + 1].transform.position - new Vector3(0, 0.7f, 0);
-            //}
-            //else
-            //{
-            //    transform.position = chainside.nodes[index].transform.position - new Vector3(0, 0.7f, 0);
-            //}
+            m_Index = index;
+            transform.position = chainside.nodes[index + 1].transform.position - new Vector3(0, 0.7f, 0);
 
-            //transform.position = Vector3.MoveTowards(transform.position, chainside.nodes[chainside.nodes.Count - 1].transform.position - new Vector3(0, 0.7f, 0), Time.deltaTime);
+  
         }
 
     }
 
-    private void RunAtChain()
+    public void RunAtChain()
     {
-       
-        if (Vector3.Distance(transform.position, chainside.chainEnd.position)>0.9f)
+        if (SlidChian)
         {
-            PC.rd.gravityScale = 0f;
-            transform.position = Vector3.MoveTowards(transform.position, chainside.chainEnd.position - new Vector3(0, 0.7f, 0), slidSpeed * Time.deltaTime);
-            //Debug.Log(Vector3.Distance(transform.position, chainside.chainEnd.position));
+            if (Vector3.Distance(transform.position, chainside.chainEnd.position) > 0.9f)
+            {
+                PC.rd.gravityScale = 0f;
+                transform.position = Vector3.MoveTowards(transform.position, chainside.chainEnd.position - new Vector3(0, 0.7f, 0), slidSpeed * Time.deltaTime);
+                //Debug.Log(Vector3.Distance(transform.position, chainside.chainEnd.position));
+            }
+            else
+            {
+                m_Animator.SetBool(m_HashSlidAtChainPapa, false);
+                SlidChian = false;
+                PC.rd.gravityScale = 1f;
+            }
+         
         }
         else
         {
             m_Animator.SetBool(m_HashSlidAtChainPapa, false);
-            SlidChian = false;
             PC.rd.gravityScale = 1f;
         }
+       
 
         
     }

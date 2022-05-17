@@ -95,7 +95,7 @@ public class ChainCollision : MonoBehaviour
                     return;
                 }
                 // cheracter.PC.capsuleCollider.enabled = false;
-                if (cheracter.chainside != null)
+                if (cheracter.chainside != null&& cheracter.chainside!=this)
                 {
                     for (int i = 0; i < cheracter.chainside.nodes.Count; i++)
                     {
@@ -117,87 +117,8 @@ public class ChainCollision : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var chainParent = transform.parent.GetComponent<ChainSide>();
 
-        if (chainParent!=null)
-        {
-            for (int i = 0; i < chainParent.nodes.Count; i++)
-            {
-                chainParent.nodes[i].GetComponent<CircleCollider2D>().enabled = true;
-            }
-        }
-     
     }
 
 }
 
-//#if UNITY_EDITOR
-//[CustomEditor(typeof(ChainSide))]
-//public class ChianEditor : Editor
-//{
-
-//    static BoundingSphere s_BoundingSphere = new BoundingSphere();
-//    static Handles s_Heandles;
-
-
-//    protected GameObject targetPos;
-
-//    protected ChainSide m_ChainSide;
-//    protected GameObject chainHead;
-//    protected Transform chainEnd;
-//    protected float chainDistance = 0.1f;
-//    protected float m_chainDistance;
-//    protected GameObject m_chainEnd;
-
-//    protected SerializedProperty m_ChainDistance;
-//    protected SerializedProperty m_ChainEnd;
-//    protected SerializedProperty m_nodes;
-
-//    private void OnEnable()
-//    {
-//        m_ChainSide = target as ChainSide;
-
-//        chainEnd = m_ChainSide.chainEnd;
-
-//        m_ChainSide.SetReferences();
-
-//        m_ChainSide.UpdateChainEndPosition();
-
-
-//        m_ChainDistance = serializedObject.FindProperty("chainDistance");
-//        m_ChainEnd = serializedObject.FindProperty("chainEnd");
-//        m_nodes = serializedObject.FindProperty("nodes");
-
-//        s_BoundingSphere.radius = 1f;
-
-//        s_BoundingSphere.position = m_ChainSide.chainEnd.position;
-//    }
-
-
-//    public override void OnInspectorGUI()
-//    {
-//        serializedObject.Update();
-
-//        EditorGUILayout.PropertyField(m_ChainDistance);
-//        EditorGUILayout.PropertyField(m_ChainEnd);
-//        EditorGUILayout.PropertyField(m_nodes);
-
-
-//        EditorGUI.BeginChangeCheck();
-
-//        chainEnd = m_ChainSide.chainEnd;
-//        m_ChainSide.UpdateChainEndPosition();
-//        m_ChainSide.CreateLineRendere();
-
-//        if (EditorGUI.EndChangeCheck())
-//        {
-//            Undo.RecordObject(m_ChainSide, "Modify ChainSide");
-          
-//             m_ChainSide.chainEnd = chainEnd;
-//        }
-
-
-//        serializedObject.ApplyModifiedProperties();
-//    }
-//}
-//#endif

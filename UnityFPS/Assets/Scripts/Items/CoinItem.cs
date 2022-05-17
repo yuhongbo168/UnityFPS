@@ -10,8 +10,8 @@ public class CoinItem : Item
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (timer <= 0)
-            {
+            /*if (timer <= 0)*/
+            //{
                 Character character = collision.gameObject.GetComponent<Character>();
                 if (character != null)
                 {
@@ -23,7 +23,7 @@ public class CoinItem : Item
                 }
 
                 Destroy(this.gameObject);
-            }
+           // }
 
         }
     }

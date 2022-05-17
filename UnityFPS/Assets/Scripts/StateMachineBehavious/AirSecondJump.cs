@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AirSecondJump : ScenceLinkSMB<Character>
 {
-
     public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
@@ -13,11 +12,17 @@ public class AirSecondJump : ScenceLinkSMB<Character>
     public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // m_TMonoBehavious.UpdateJump();
-        
 
-        m_TMonoBehavious.SecondBounceJumpVerticlMovment();    
-     
+        m_TMonoBehavious.UpdateJump();
         m_TMonoBehavious.CheckForGrounded();
-        
+        m_TMonoBehavious.SecondBounceJumpVerticlMovment();
+   
+        m_TMonoBehavious.CheckBounceJump();
+
+        if (m_TMonoBehavious.CheckForJumpInput())
+        {
+            m_TMonoBehavious.SecondBounceJump();
+        }
+       
     }
 }
